@@ -2,7 +2,12 @@ import "./App.css";
 
 import Popover from "react-bootstrap/Popover";
 
-import { TestButton, DoiBadge, HelpButton } from "../lib/main.js";
+import {
+  TestButton,
+  DoiBadge,
+  HelpButton,
+  McloudSpinner,
+} from "../lib/main.js";
 
 const helpButtonContents = (
   <Popover>
@@ -30,6 +35,10 @@ function App() {
       </div>
       <div style={{ fontSize: "20px" }}>
         <HelpButton popover={helpButtonContents} placement="bottom" />
+      </div>
+      <span>McloudSpinner</span>
+      <div style={{ width: "80px", padding: "10px" }}>
+        <McloudSpinner />
       </div>
     </div>
   );
