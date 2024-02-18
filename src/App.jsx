@@ -1,14 +1,14 @@
-import './App.css'
+import "./App.css";
 
-import { TestButton } from "../lib/components/TestButton";
+import { TestButton } from "../lib/main.js";
 
 function App() {
-
   return (
-      <div>
-        <TestButton/>
-      </div>
-  )
+    <div className="test-container">
+      <span>TestButton</span>
+      <TestButton />
+    </div>
+  );
 }
 
-export default App
+export default App;

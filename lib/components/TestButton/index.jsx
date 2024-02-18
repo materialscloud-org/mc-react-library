@@ -1,3 +1,5 @@
+import styles from "./styles.module.css";
+
 export function TestButton(props) {
-    return <button {...props}>TEST</button>
+  return <button className={styles.button}>TEST</button>;
 }

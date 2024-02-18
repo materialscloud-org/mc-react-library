@@ -1,6 +1,15 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /* margin: 0 auto; */
+  padding: 2rem 5rem;
+}
+
+.test-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-container span {
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
