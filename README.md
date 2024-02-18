@@ -28,16 +28,16 @@ npm run dev
 
 and update the components in `lib\`.
 
-### Building and using locally
+### Building and testing locally
 
-To build the library and pack it into a locally installable `.tgz`, use:
+To build the library and test it locally in an external application (before publishing to npm), use
 
 ```
 npm run build
 npm pack
 ```
 
-This can be installed by an external application via
+which will create a `.tgz` file that can then be installed by the external application via
 
 ```
 npm install /path/to/mc-react-components-x.y.z.tgz
