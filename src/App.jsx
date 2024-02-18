@@ -7,6 +7,8 @@ import {
   DoiBadge,
   HelpButton,
   McloudSpinner,
+  formatChemicalFormula,
+  formatSpaceGroupSymbol,
 } from "../lib/main.js";
 
 const helpButtonContents = (
@@ -40,6 +42,9 @@ function App() {
       <div style={{ width: "80px", padding: "10px" }}>
         <McloudSpinner />
       </div>
+      <span>utils.jsx</span>
+      <div>{formatChemicalFormula("CO2")}</div>
+      <div>{formatSpaceGroupSymbol("P6_3/mcm")}</div>
     </div>
   );
 }
