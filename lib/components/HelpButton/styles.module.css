@@ -1,0 +1,21 @@
+.help_button {
+  /* font-size: 16px; */ /* don't specify font size, let the parent do it */
+  width: 1.25em; /* em - units of font size */
+  height: 1.25em;
+  box-sizing: border-box;
+  /* border: 1px solid #999; */
+  box-shadow: 0px 0px 0px 1px rgb(104, 104, 104) inset;
+  border-radius: 50%;
+  cursor: default; /* don't charge cursor into a bar when hovering over text */
+  user-select: none; /* don't select text upon clicking */
+  background: rgb(236, 236, 236);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.help_button:hover {
+  filter: brightness(85%);
+}

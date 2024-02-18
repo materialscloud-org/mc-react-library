@@ -16,5 +16,5 @@
 }
 
 .test-container > div {
-  border: dashed 1px red;
+  border: dashed 1px rgb(255, 70, 70);
 }
