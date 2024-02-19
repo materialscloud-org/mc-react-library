@@ -7,31 +7,33 @@ import styles from "./styles.module.css";
 
 export function StructDownloadButton(props) {
   var dl_url = `${props.aiida_rest_url}/nodes/${props.uuid}/download`;
+
+  var clickPopover = (
+    <Popover>
+      <Popover.Body style={{ padding: "5px 0px" }}>
+        <ul className={styles.download_dropdown_menu}>
+          <li>
+            <a href={`${dl_url}?download_format=chemdoodle`}>ChemDoodle</a>
+          </li>
+          <li>
+            <a href={`${dl_url}?download_format=cif`}>CIF</a>
+          </li>
+          <li>
+            <a href={`${dl_url}?download_format=xsf`}>XSF</a>
+          </li>
+          <li>
+            <a href={`${dl_url}?download_format=xyz`}>XYZ</a>
+          </li>
+        </ul>
+      </Popover.Body>
+    </Popover>
+  );
   return (
     <OverlayTrigger
       trigger="click"
       rootClose
       placement={"bottom"}
-      overlay={
-        <Popover>
-          <Popover.Body style={{ padding: "5px 0px" }}>
-            <ul className={styles.download_dropdown_menu}>
-              <li>
-                <a href={`${dl_url}?download_format=chemdoodle`}>ChemDoodle</a>
-              </li>
-              <li>
-                <a href={`${dl_url}?download_format=cif`}>CIF</a>
-              </li>
-              <li>
-                <a href={`${dl_url}?download_format=xsf`}>XSF</a>
-              </li>
-              <li>
-                <a href={`${dl_url}?download_format=xyz`}>XYZ</a>
-              </li>
-            </ul>
-          </Popover.Body>
-        </Popover>
-      }
+      overlay={clickPopover}
     >
       <Button
         size="sm"
