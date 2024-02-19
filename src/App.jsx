@@ -7,6 +7,7 @@ import {
   DoiBadge,
   HelpButton,
   McloudSpinner,
+  StructDownloadButton,
   formatChemicalFormula,
   formatSpaceGroupSymbol,
 } from "../lib/main.js";
@@ -45,6 +46,13 @@ function App() {
       <span>utils.jsx</span>
       <div>{formatChemicalFormula("CO2")}</div>
       <div>{formatSpaceGroupSymbol("P6_3/mcm")}</div>
+      <span>StructDownloadButton</span>
+      <div>
+        <StructDownloadButton
+          aiida_rest_url="https://aiida.materialscloud.org/mc3d/api/v4"
+          uuid="1d546de0-fb37-4faa-bb25-b3d02773f5e6"
+        />
+      </div>
     </div>
   );
 }
