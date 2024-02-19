@@ -8,6 +8,7 @@ import {
   HelpButton,
   McloudSpinner,
   StructDownloadButton,
+  ExploreButton,
   formatChemicalFormula,
   formatSpaceGroupSymbol,
 } from "../lib/main.js";
@@ -50,6 +51,14 @@ function App() {
       <div>
         <StructDownloadButton
           aiida_rest_url="https://aiida.materialscloud.org/mc3d/api/v4"
+          uuid="1d546de0-fb37-4faa-bb25-b3d02773f5e6"
+        />
+      </div>
+      <span>ExploreButton</span>
+      <div>
+        some text{" "}
+        <ExploreButton
+          explore_url="https://www.materialscloud.org/explore/mc3d"
           uuid="1d546de0-fb37-4faa-bb25-b3d02773f5e6"
         />
       </div>
