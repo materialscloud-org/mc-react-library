@@ -1,11 +1,11 @@
-# Materials Cloud React components
+# Materials Cloud React component library
 
 React component library used in Materials Cloud, built with vite and bootstrap.
 
 Install via
 
 ```
-npm install mc-react-components
+npm install mc-react-library
 ```
 
 Note: make sure all `peerDependencies` (defined in `package.json`) are installed in the host application!
@@ -40,7 +40,7 @@ npm pack
 which will create a `.tgz` file that can then be installed by the external application via
 
 ```
-npm install /path/to/mc-react-components-x.y.z.tgz
+npm install /path/to/mc-react-library-x.y.z.tgz
 ```
 
 ### Publishing a new version

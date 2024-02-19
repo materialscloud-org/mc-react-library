@@ -1,8 +1,8 @@
 {
-  "name": "mc-react-components",
+  "name": "mc-react-library",
   "version": "0.1.1",
   "type": "module",
-  "main": "dist/mc-react-components.js",
+  "main": "dist/mc-react-library.js",
   "files": [
     "dist"
   ],
