@@ -10,10 +10,23 @@ npm install mc-react-library
 
 Note: make sure all `peerDependencies` (defined in `package.json`) are installed in the host application!
 
+And use with
+
+```javascript
+import {
+  DoiBadge,
+  HelpButton,
+  McloudSpinner,
+  ...
+} from "mc-react-library";
+```
+
+Note: see usage examples of each component in the demo page.
+
 Project structure:
 
 - `lib\` - contains the React components of the library.
-- `src\` - contains a demo page that renders the components just for development.
+- `src\` - contains a demo page that renders the components for development.
 
 ## Development
 
@@ -48,6 +61,6 @@ npm install /path/to/mc-react-library-x.y.z.tgz
 To make a new version and publish to npm via GitHub Actions:
 
 ```bash
-npm version <patch/minor/major>
+npm version <major/minor/patch>
 git push --follow-tags
 ```
