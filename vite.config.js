@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "lib/main.js"),
-      name: "mc-react-library",
+      fileName: "main",
       formats: ["es"],
     },
     rollupOptions: {

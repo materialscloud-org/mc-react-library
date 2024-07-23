@@ -2,7 +2,7 @@
   "name": "mc-react-library",
   "version": "0.3.0",
   "type": "module",
-  "main": "dist/mc-react-library.js",
+  "module": "dist/main.js",
   "files": [
     "dist"
   ],
