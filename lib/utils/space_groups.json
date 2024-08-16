@@ -1,0 +1,1152 @@
+{
+  "1": {
+    "pg_int": "1",
+    "sg_int": "P1",
+    "sg_int_short": "P1"
+  },
+  "2": {
+    "pg_int": "-1",
+    "sg_int": "P-1",
+    "sg_int_short": "P-1"
+  },
+  "3": {
+    "pg_int": "2",
+    "sg_int": "P121",
+    "sg_int_short": "P2"
+  },
+  "4": {
+    "pg_int": "2",
+    "sg_int": "P12_11",
+    "sg_int_short": "P2_1"
+  },
+  "5": {
+    "pg_int": "2",
+    "sg_int": "C121",
+    "sg_int_short": "C2"
+  },
+  "6": {
+    "pg_int": "m",
+    "sg_int": "P1m1",
+    "sg_int_short": "Pm"
+  },
+  "7": {
+    "pg_int": "m",
+    "sg_int": "P1c1",
+    "sg_int_short": "Pc"
+  },
+  "8": {
+    "pg_int": "m",
+    "sg_int": "C1m1",
+    "sg_int_short": "Cm"
+  },
+  "9": {
+    "pg_int": "m",
+    "sg_int": "C1c1",
+    "sg_int_short": "Cc"
+  },
+  "10": {
+    "pg_int": "2/m",
+    "sg_int": "P12/m1",
+    "sg_int_short": "P2/m"
+  },
+  "11": {
+    "pg_int": "2/m",
+    "sg_int": "P12_1/m1",
+    "sg_int_short": "P2_1/m"
+  },
+  "12": {
+    "pg_int": "2/m",
+    "sg_int": "C12/m1",
+    "sg_int_short": "C2/m"
+  },
+  "13": {
+    "pg_int": "2/m",
+    "sg_int": "P12/c1",
+    "sg_int_short": "P2/c"
+  },
+  "14": {
+    "pg_int": "2/m",
+    "sg_int": "P12_1/c1",
+    "sg_int_short": "P2_1/c"
+  },
+  "15": {
+    "pg_int": "2/m",
+    "sg_int": "C12/c1",
+    "sg_int_short": "C2/c"
+  },
+  "16": {
+    "pg_int": "222",
+    "sg_int": "P222",
+    "sg_int_short": "P222"
+  },
+  "17": {
+    "pg_int": "222",
+    "sg_int": "P222_1",
+    "sg_int_short": "P222_1"
+  },
+  "18": {
+    "pg_int": "222",
+    "sg_int": "P2_12_12",
+    "sg_int_short": "P2_12_12"
+  },
+  "19": {
+    "pg_int": "222",
+    "sg_int": "P2_12_12_1",
+    "sg_int_short": "P2_12_12_1"
+  },
+  "20": {
+    "pg_int": "222",
+    "sg_int": "C222_1",
+    "sg_int_short": "C222_1"
+  },
+  "21": {
+    "pg_int": "222",
+    "sg_int": "C222",
+    "sg_int_short": "C222"
+  },
+  "22": {
+    "pg_int": "222",
+    "sg_int": "F222",
+    "sg_int_short": "F222"
+  },
+  "23": {
+    "pg_int": "222",
+    "sg_int": "I222",
+    "sg_int_short": "I222"
+  },
+  "24": {
+    "pg_int": "222",
+    "sg_int": "I2_12_12_1",
+    "sg_int_short": "I2_12_12_1"
+  },
+  "25": {
+    "pg_int": "mm2",
+    "sg_int": "Pmm2",
+    "sg_int_short": "Pmm2"
+  },
+  "26": {
+    "pg_int": "mm2",
+    "sg_int": "Pmc2_1",
+    "sg_int_short": "Pmc2_1"
+  },
+  "27": {
+    "pg_int": "mm2",
+    "sg_int": "Pcc2",
+    "sg_int_short": "Pcc2"
+  },
+  "28": {
+    "pg_int": "mm2",
+    "sg_int": "Pma2",
+    "sg_int_short": "Pma2"
+  },
+  "29": {
+    "pg_int": "mm2",
+    "sg_int": "Pca2_1",
+    "sg_int_short": "Pca2_1"
+  },
+  "30": {
+    "pg_int": "mm2",
+    "sg_int": "Pnc2",
+    "sg_int_short": "Pnc2"
+  },
+  "31": {
+    "pg_int": "mm2",
+    "sg_int": "Pmn2_1",
+    "sg_int_short": "Pmn2_1"
+  },
+  "32": {
+    "pg_int": "mm2",
+    "sg_int": "Pba2",
+    "sg_int_short": "Pba2"
+  },
+  "33": {
+    "pg_int": "mm2",
+    "sg_int": "Pna2_1",
+    "sg_int_short": "Pna2_1"
+  },
+  "34": {
+    "pg_int": "mm2",
+    "sg_int": "Pnn2",
+    "sg_int_short": "Pnn2"
+  },
+  "35": {
+    "pg_int": "mm2",
+    "sg_int": "Cmm2",
+    "sg_int_short": "Cmm2"
+  },
+  "36": {
+    "pg_int": "mm2",
+    "sg_int": "Cmc2_1",
+    "sg_int_short": "Cmc2_1"
+  },
+  "37": {
+    "pg_int": "mm2",
+    "sg_int": "Ccc2",
+    "sg_int_short": "Ccc2"
+  },
+  "38": {
+    "pg_int": "mm2",
+    "sg_int": "Amm2",
+    "sg_int_short": "Amm2"
+  },
+  "39": {
+    "pg_int": "mm2",
+    "sg_int": "Aem2",
+    "sg_int_short": "Aem2"
+  },
+  "40": {
+    "pg_int": "mm2",
+    "sg_int": "Ama2",
+    "sg_int_short": "Ama2"
+  },
+  "41": {
+    "pg_int": "mm2",
+    "sg_int": "Aea2",
+    "sg_int_short": "Aea2"
+  },
+  "42": {
+    "pg_int": "mm2",
+    "sg_int": "Fmm2",
+    "sg_int_short": "Fmm2"
+  },
+  "43": {
+    "pg_int": "mm2",
+    "sg_int": "Fdd2",
+    "sg_int_short": "Fdd2"
+  },
+  "44": {
+    "pg_int": "mm2",
+    "sg_int": "Imm2",
+    "sg_int_short": "Imm2"
+  },
+  "45": {
+    "pg_int": "mm2",
+    "sg_int": "Iba2",
+    "sg_int_short": "Iba2"
+  },
+  "46": {
+    "pg_int": "mm2",
+    "sg_int": "Ima2",
+    "sg_int_short": "Ima2"
+  },
+  "47": {
+    "pg_int": "mmm",
+    "sg_int": "Pmmm",
+    "sg_int_short": "Pmmm"
+  },
+  "48": {
+    "pg_int": "mmm",
+    "sg_int": "Pnnn",
+    "sg_int_short": "Pnnn"
+  },
+  "49": {
+    "pg_int": "mmm",
+    "sg_int": "Pccm",
+    "sg_int_short": "Pccm"
+  },
+  "50": {
+    "pg_int": "mmm",
+    "sg_int": "Pban",
+    "sg_int_short": "Pban"
+  },
+  "51": {
+    "pg_int": "mmm",
+    "sg_int": "Pmma",
+    "sg_int_short": "Pmma"
+  },
+  "52": {
+    "pg_int": "mmm",
+    "sg_int": "Pnna",
+    "sg_int_short": "Pnna"
+  },
+  "53": {
+    "pg_int": "mmm",
+    "sg_int": "Pmna",
+    "sg_int_short": "Pmna"
+  },
+  "54": {
+    "pg_int": "mmm",
+    "sg_int": "Pcca",
+    "sg_int_short": "Pcca"
+  },
+  "55": {
+    "pg_int": "mmm",
+    "sg_int": "Pbam",
+    "sg_int_short": "Pbam"
+  },
+  "56": {
+    "pg_int": "mmm",
+    "sg_int": "Pccn",
+    "sg_int_short": "Pccn"
+  },
+  "57": {
+    "pg_int": "mmm",
+    "sg_int": "Pbcm",
+    "sg_int_short": "Pbcm"
+  },
+  "58": {
+    "pg_int": "mmm",
+    "sg_int": "Pnnm",
+    "sg_int_short": "Pnnm"
+  },
+  "59": {
+    "pg_int": "mmm",
+    "sg_int": "Pmmn",
+    "sg_int_short": "Pmmn"
+  },
+  "60": {
+    "pg_int": "mmm",
+    "sg_int": "Pbcn",
+    "sg_int_short": "Pbcn"
+  },
+  "61": {
+    "pg_int": "mmm",
+    "sg_int": "Pbca",
+    "sg_int_short": "Pbca"
+  },
+  "62": {
+    "pg_int": "mmm",
+    "sg_int": "Pnma",
+    "sg_int_short": "Pnma"
+  },
+  "63": {
+    "pg_int": "mmm",
+    "sg_int": "Cmcm",
+    "sg_int_short": "Cmcm"
+  },
+  "64": {
+    "pg_int": "mmm",
+    "sg_int": "Cmce",
+    "sg_int_short": "Cmce"
+  },
+  "65": {
+    "pg_int": "mmm",
+    "sg_int": "Cmmm",
+    "sg_int_short": "Cmmm"
+  },
+  "66": {
+    "pg_int": "mmm",
+    "sg_int": "Cccm",
+    "sg_int_short": "Cccm"
+  },
+  "67": {
+    "pg_int": "mmm",
+    "sg_int": "Cmme",
+    "sg_int_short": "Cmme"
+  },
+  "68": {
+    "pg_int": "mmm",
+    "sg_int": "Ccce",
+    "sg_int_short": "Ccce"
+  },
+  "69": {
+    "pg_int": "mmm",
+    "sg_int": "Fmmm",
+    "sg_int_short": "Fmmm"
+  },
+  "70": {
+    "pg_int": "mmm",
+    "sg_int": "Fddd",
+    "sg_int_short": "Fddd"
+  },
+  "71": {
+    "pg_int": "mmm",
+    "sg_int": "Immm",
+    "sg_int_short": "Immm"
+  },
+  "72": {
+    "pg_int": "mmm",
+    "sg_int": "Ibam",
+    "sg_int_short": "Ibam"
+  },
+  "73": {
+    "pg_int": "mmm",
+    "sg_int": "Ibca",
+    "sg_int_short": "Ibca"
+  },
+  "74": {
+    "pg_int": "mmm",
+    "sg_int": "Imma",
+    "sg_int_short": "Imma"
+  },
+  "75": {
+    "pg_int": "4",
+    "sg_int": "P4",
+    "sg_int_short": "P4"
+  },
+  "76": {
+    "pg_int": "4",
+    "sg_int": "P4_1",
+    "sg_int_short": "P4_1"
+  },
+  "77": {
+    "pg_int": "4",
+    "sg_int": "P4_2",
+    "sg_int_short": "P4_2"
+  },
+  "78": {
+    "pg_int": "4",
+    "sg_int": "P4_3",
+    "sg_int_short": "P4_3"
+  },
+  "79": {
+    "pg_int": "4",
+    "sg_int": "I4",
+    "sg_int_short": "I4"
+  },
+  "80": {
+    "pg_int": "4",
+    "sg_int": "I4_1",
+    "sg_int_short": "I4_1"
+  },
+  "81": {
+    "pg_int": "-4",
+    "sg_int": "P-4",
+    "sg_int_short": "P-4"
+  },
+  "82": {
+    "pg_int": "-4",
+    "sg_int": "I-4",
+    "sg_int_short": "I-4"
+  },
+  "83": {
+    "pg_int": "4/m",
+    "sg_int": "P4/m",
+    "sg_int_short": "P4/m"
+  },
+  "84": {
+    "pg_int": "4/m",
+    "sg_int": "P4_2/m",
+    "sg_int_short": "P4_2/m"
+  },
+  "85": {
+    "pg_int": "4/m",
+    "sg_int": "P4/n",
+    "sg_int_short": "P4/n"
+  },
+  "86": {
+    "pg_int": "4/m",
+    "sg_int": "P4_2/n",
+    "sg_int_short": "P4_2/n"
+  },
+  "87": {
+    "pg_int": "4/m",
+    "sg_int": "I4/m",
+    "sg_int_short": "I4/m"
+  },
+  "88": {
+    "pg_int": "4/m",
+    "sg_int": "I4_1/a",
+    "sg_int_short": "I4_1/a"
+  },
+  "89": {
+    "pg_int": "422",
+    "sg_int": "P422",
+    "sg_int_short": "P422"
+  },
+  "90": {
+    "pg_int": "422",
+    "sg_int": "P42_12",
+    "sg_int_short": "P42_12"
+  },
+  "91": {
+    "pg_int": "422",
+    "sg_int": "P4_122",
+    "sg_int_short": "P4_122"
+  },
+  "92": {
+    "pg_int": "422",
+    "sg_int": "P4_12_12",
+    "sg_int_short": "P4_12_12"
+  },
+  "93": {
+    "pg_int": "422",
+    "sg_int": "P4_222",
+    "sg_int_short": "P4_222"
+  },
+  "94": {
+    "pg_int": "422",
+    "sg_int": "P4_22_12",
+    "sg_int_short": "P4_22_12"
+  },
+  "95": {
+    "pg_int": "422",
+    "sg_int": "P4_322",
+    "sg_int_short": "P4_322"
+  },
+  "96": {
+    "pg_int": "422",
+    "sg_int": "P4_32_12",
+    "sg_int_short": "P4_32_12"
+  },
+  "97": {
+    "pg_int": "422",
+    "sg_int": "I422",
+    "sg_int_short": "I422"
+  },
+  "98": {
+    "pg_int": "422",
+    "sg_int": "I4_122",
+    "sg_int_short": "I4_122"
+  },
+  "99": {
+    "pg_int": "4mm",
+    "sg_int": "P4mm",
+    "sg_int_short": "P4mm"
+  },
+  "100": {
+    "pg_int": "4mm",
+    "sg_int": "P4bm",
+    "sg_int_short": "P4bm"
+  },
+  "101": {
+    "pg_int": "4mm",
+    "sg_int": "P4_2cm",
+    "sg_int_short": "P4_2cm"
+  },
+  "102": {
+    "pg_int": "4mm",
+    "sg_int": "P4_2nm",
+    "sg_int_short": "P4_2nm"
+  },
+  "103": {
+    "pg_int": "4mm",
+    "sg_int": "P4cc",
+    "sg_int_short": "P4cc"
+  },
+  "104": {
+    "pg_int": "4mm",
+    "sg_int": "P4nc",
+    "sg_int_short": "P4nc"
+  },
+  "105": {
+    "pg_int": "4mm",
+    "sg_int": "P4_2mc",
+    "sg_int_short": "P4_2mc"
+  },
+  "106": {
+    "pg_int": "4mm",
+    "sg_int": "P4_2bc",
+    "sg_int_short": "P4_2bc"
+  },
+  "107": {
+    "pg_int": "4mm",
+    "sg_int": "I4mm",
+    "sg_int_short": "I4mm"
+  },
+  "108": {
+    "pg_int": "4mm",
+    "sg_int": "I4cm",
+    "sg_int_short": "I4cm"
+  },
+  "109": {
+    "pg_int": "4mm",
+    "sg_int": "I4_1md",
+    "sg_int_short": "I4_1md"
+  },
+  "110": {
+    "pg_int": "4mm",
+    "sg_int": "I4_1cd",
+    "sg_int_short": "I4_1cd"
+  },
+  "111": {
+    "pg_int": "-42m",
+    "sg_int": "P-42m",
+    "sg_int_short": "P-42m"
+  },
+  "112": {
+    "pg_int": "-42m",
+    "sg_int": "P-42c",
+    "sg_int_short": "P-42c"
+  },
+  "113": {
+    "pg_int": "-42m",
+    "sg_int": "P-42_1m",
+    "sg_int_short": "P-42_1m"
+  },
+  "114": {
+    "pg_int": "-42m",
+    "sg_int": "P-42_1c",
+    "sg_int_short": "P-42_1c"
+  },
+  "115": {
+    "pg_int": "-4m2",
+    "sg_int": "P-4m2",
+    "sg_int_short": "P-4m2"
+  },
+  "116": {
+    "pg_int": "-4m2",
+    "sg_int": "P-4c2",
+    "sg_int_short": "P-4c2"
+  },
+  "117": {
+    "pg_int": "-4m2",
+    "sg_int": "P-4b2",
+    "sg_int_short": "P-4b2"
+  },
+  "118": {
+    "pg_int": "-4m2",
+    "sg_int": "P-4n2",
+    "sg_int_short": "P-4n2"
+  },
+  "119": {
+    "pg_int": "-4m2",
+    "sg_int": "I-4m2",
+    "sg_int_short": "I-4m2"
+  },
+  "120": {
+    "pg_int": "-4m2",
+    "sg_int": "I-4c2",
+    "sg_int_short": "I-4c2"
+  },
+  "121": {
+    "pg_int": "-42m",
+    "sg_int": "I-42m",
+    "sg_int_short": "I-42m"
+  },
+  "122": {
+    "pg_int": "-42m",
+    "sg_int": "I-42d",
+    "sg_int_short": "I-42d"
+  },
+  "123": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/mmm",
+    "sg_int_short": "P4/mmm"
+  },
+  "124": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/mcc",
+    "sg_int_short": "P4/mcc"
+  },
+  "125": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/nbm",
+    "sg_int_short": "P4/nbm"
+  },
+  "126": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/nnc",
+    "sg_int_short": "P4/nnc"
+  },
+  "127": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/mbm",
+    "sg_int_short": "P4/mbm"
+  },
+  "128": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/mnc",
+    "sg_int_short": "P4/mnc"
+  },
+  "129": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/nmm",
+    "sg_int_short": "P4/nmm"
+  },
+  "130": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4/ncc",
+    "sg_int_short": "P4/ncc"
+  },
+  "131": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/mmc",
+    "sg_int_short": "P4_2/mmc"
+  },
+  "132": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/mcm",
+    "sg_int_short": "P4_2/mcm"
+  },
+  "133": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/nbc",
+    "sg_int_short": "P4_2/nbc"
+  },
+  "134": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/nnm",
+    "sg_int_short": "P4_2/nnm"
+  },
+  "135": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/mbc",
+    "sg_int_short": "P4_2/mbc"
+  },
+  "136": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/mnm",
+    "sg_int_short": "P4_2/mnm"
+  },
+  "137": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/nmc",
+    "sg_int_short": "P4_2/nmc"
+  },
+  "138": {
+    "pg_int": "4/mmm",
+    "sg_int": "P4_2/ncm",
+    "sg_int_short": "P4_2/ncm"
+  },
+  "139": {
+    "pg_int": "4/mmm",
+    "sg_int": "I4/mmm",
+    "sg_int_short": "I4/mmm"
+  },
+  "140": {
+    "pg_int": "4/mmm",
+    "sg_int": "I4/mcm",
+    "sg_int_short": "I4/mcm"
+  },
+  "141": {
+    "pg_int": "4/mmm",
+    "sg_int": "I4_1/amd",
+    "sg_int_short": "I4_1/amd"
+  },
+  "142": {
+    "pg_int": "4/mmm",
+    "sg_int": "I4_1/acd",
+    "sg_int_short": "I4_1/acd"
+  },
+  "143": {
+    "pg_int": "3",
+    "sg_int": "P3",
+    "sg_int_short": "P3"
+  },
+  "144": {
+    "pg_int": "3",
+    "sg_int": "P3_1",
+    "sg_int_short": "P3_1"
+  },
+  "145": {
+    "pg_int": "3",
+    "sg_int": "P3_2",
+    "sg_int_short": "P3_2"
+  },
+  "146": {
+    "pg_int": "3",
+    "sg_int": "R3",
+    "sg_int_short": "R3"
+  },
+  "147": {
+    "pg_int": "-3",
+    "sg_int": "P-3",
+    "sg_int_short": "P-3"
+  },
+  "148": {
+    "pg_int": "-3",
+    "sg_int": "R-3",
+    "sg_int_short": "R-3"
+  },
+  "149": {
+    "pg_int": "312",
+    "sg_int": "P312",
+    "sg_int_short": "P312"
+  },
+  "150": {
+    "pg_int": "321",
+    "sg_int": "P321",
+    "sg_int_short": "P321"
+  },
+  "151": {
+    "pg_int": "312",
+    "sg_int": "P3_112",
+    "sg_int_short": "P3_112"
+  },
+  "152": {
+    "pg_int": "321",
+    "sg_int": "P3_121",
+    "sg_int_short": "P3_121"
+  },
+  "153": {
+    "pg_int": "312",
+    "sg_int": "P3_212",
+    "sg_int_short": "P3_212"
+  },
+  "154": {
+    "pg_int": "321",
+    "sg_int": "P3_221",
+    "sg_int_short": "P3_221"
+  },
+  "155": {
+    "pg_int": "32",
+    "sg_int": "R32",
+    "sg_int_short": "R32"
+  },
+  "156": {
+    "pg_int": "3m1",
+    "sg_int": "P3m1",
+    "sg_int_short": "P3m1"
+  },
+  "157": {
+    "pg_int": "31m",
+    "sg_int": "P31m",
+    "sg_int_short": "P31m"
+  },
+  "158": {
+    "pg_int": "3m1",
+    "sg_int": "P3c1",
+    "sg_int_short": "P3c1"
+  },
+  "159": {
+    "pg_int": "31m",
+    "sg_int": "P31c",
+    "sg_int_short": "P31c"
+  },
+  "160": {
+    "pg_int": "3m",
+    "sg_int": "R3m",
+    "sg_int_short": "R3m"
+  },
+  "161": {
+    "pg_int": "3m",
+    "sg_int": "R3c",
+    "sg_int_short": "R3c"
+  },
+  "162": {
+    "pg_int": "-31m",
+    "sg_int": "P-31m",
+    "sg_int_short": "P-31m"
+  },
+  "163": {
+    "pg_int": "-31m",
+    "sg_int": "P-31c",
+    "sg_int_short": "P-31c"
+  },
+  "164": {
+    "pg_int": "-3m1",
+    "sg_int": "P-3m1",
+    "sg_int_short": "P-3m1"
+  },
+  "165": {
+    "pg_int": "-3m1",
+    "sg_int": "P-3c1",
+    "sg_int_short": "P-3c1"
+  },
+  "166": {
+    "pg_int": "-3m",
+    "sg_int": "R-3m",
+    "sg_int_short": "R-3m"
+  },
+  "167": {
+    "pg_int": "-3m",
+    "sg_int": "R-3c",
+    "sg_int_short": "R-3c"
+  },
+  "168": {
+    "pg_int": "6",
+    "sg_int": "P6",
+    "sg_int_short": "P6"
+  },
+  "169": {
+    "pg_int": "6",
+    "sg_int": "P6_1",
+    "sg_int_short": "P6_1"
+  },
+  "170": {
+    "pg_int": "6",
+    "sg_int": "P6_5",
+    "sg_int_short": "P6_5"
+  },
+  "171": {
+    "pg_int": "6",
+    "sg_int": "P6_2",
+    "sg_int_short": "P6_2"
+  },
+  "172": {
+    "pg_int": "6",
+    "sg_int": "P6_4",
+    "sg_int_short": "P6_4"
+  },
+  "173": {
+    "pg_int": "6",
+    "sg_int": "P6_3",
+    "sg_int_short": "P6_3"
+  },
+  "174": {
+    "pg_int": "-6",
+    "sg_int": "P-6",
+    "sg_int_short": "P-6"
+  },
+  "175": {
+    "pg_int": "6/m",
+    "sg_int": "P6/m",
+    "sg_int_short": "P6/m"
+  },
+  "176": {
+    "pg_int": "6/m",
+    "sg_int": "P6_3/m",
+    "sg_int_short": "P6_3/m"
+  },
+  "177": {
+    "pg_int": "622",
+    "sg_int": "P622",
+    "sg_int_short": "P622"
+  },
+  "178": {
+    "pg_int": "622",
+    "sg_int": "P6_122",
+    "sg_int_short": "P6_122"
+  },
+  "179": {
+    "pg_int": "622",
+    "sg_int": "P6_522",
+    "sg_int_short": "P6_522"
+  },
+  "180": {
+    "pg_int": "622",
+    "sg_int": "P6_222",
+    "sg_int_short": "P6_222"
+  },
+  "181": {
+    "pg_int": "622",
+    "sg_int": "P6_422",
+    "sg_int_short": "P6_422"
+  },
+  "182": {
+    "pg_int": "622",
+    "sg_int": "P6_322",
+    "sg_int_short": "P6_322"
+  },
+  "183": {
+    "pg_int": "6mm",
+    "sg_int": "P6mm",
+    "sg_int_short": "P6mm"
+  },
+  "184": {
+    "pg_int": "6mm",
+    "sg_int": "P6cc",
+    "sg_int_short": "P6cc"
+  },
+  "185": {
+    "pg_int": "6mm",
+    "sg_int": "P6_3cm",
+    "sg_int_short": "P6_3cm"
+  },
+  "186": {
+    "pg_int": "6mm",
+    "sg_int": "P6_3mc",
+    "sg_int_short": "P6_3mc"
+  },
+  "187": {
+    "pg_int": "-6m2",
+    "sg_int": "P-6m2",
+    "sg_int_short": "P-6m2"
+  },
+  "188": {
+    "pg_int": "-6m2",
+    "sg_int": "P-6c2",
+    "sg_int_short": "P-6c2"
+  },
+  "189": {
+    "pg_int": "-62m",
+    "sg_int": "P-62m",
+    "sg_int_short": "P-62m"
+  },
+  "190": {
+    "pg_int": "-62m",
+    "sg_int": "P-62c",
+    "sg_int_short": "P-62c"
+  },
+  "191": {
+    "pg_int": "6/mmm",
+    "sg_int": "P6/mmm",
+    "sg_int_short": "P6/mmm"
+  },
+  "192": {
+    "pg_int": "6/mmm",
+    "sg_int": "P6/mcc",
+    "sg_int_short": "P6/mcc"
+  },
+  "193": {
+    "pg_int": "6/mmm",
+    "sg_int": "P6_3/mcm",
+    "sg_int_short": "P6_3/mcm"
+  },
+  "194": {
+    "pg_int": "6/mmm",
+    "sg_int": "P6_3/mmc",
+    "sg_int_short": "P6_3/mmc"
+  },
+  "195": {
+    "pg_int": "23",
+    "sg_int": "P23",
+    "sg_int_short": "P23"
+  },
+  "196": {
+    "pg_int": "23",
+    "sg_int": "F23",
+    "sg_int_short": "F23"
+  },
+  "197": {
+    "pg_int": "23",
+    "sg_int": "I23",
+    "sg_int_short": "I23"
+  },
+  "198": {
+    "pg_int": "23",
+    "sg_int": "P2_13",
+    "sg_int_short": "P2_13"
+  },
+  "199": {
+    "pg_int": "23",
+    "sg_int": "I2_13",
+    "sg_int_short": "I2_13"
+  },
+  "200": {
+    "pg_int": "m-3",
+    "sg_int": "Pm-3",
+    "sg_int_short": "Pm-3"
+  },
+  "201": {
+    "pg_int": "m-3",
+    "sg_int": "Pn-3",
+    "sg_int_short": "Pn-3"
+  },
+  "202": {
+    "pg_int": "m-3",
+    "sg_int": "Fm-3",
+    "sg_int_short": "Fm-3"
+  },
+  "203": {
+    "pg_int": "m-3",
+    "sg_int": "Fd-3",
+    "sg_int_short": "Fd-3"
+  },
+  "204": {
+    "pg_int": "m-3",
+    "sg_int": "Im-3",
+    "sg_int_short": "Im-3"
+  },
+  "205": {
+    "pg_int": "m-3",
+    "sg_int": "Pa-3",
+    "sg_int_short": "Pa-3"
+  },
+  "206": {
+    "pg_int": "m-3",
+    "sg_int": "Ia-3",
+    "sg_int_short": "Ia-3"
+  },
+  "207": {
+    "pg_int": "432",
+    "sg_int": "P432",
+    "sg_int_short": "P432"
+  },
+  "208": {
+    "pg_int": "432",
+    "sg_int": "P4_232",
+    "sg_int_short": "P4_232"
+  },
+  "209": {
+    "pg_int": "432",
+    "sg_int": "F432",
+    "sg_int_short": "F432"
+  },
+  "210": {
+    "pg_int": "432",
+    "sg_int": "F4_132",
+    "sg_int_short": "F4_132"
+  },
+  "211": {
+    "pg_int": "432",
+    "sg_int": "I432",
+    "sg_int_short": "I432"
+  },
+  "212": {
+    "pg_int": "432",
+    "sg_int": "P4_332",
+    "sg_int_short": "P4_332"
+  },
+  "213": {
+    "pg_int": "432",
+    "sg_int": "P4_132",
+    "sg_int_short": "P4_132"
+  },
+  "214": {
+    "pg_int": "432",
+    "sg_int": "I4_132",
+    "sg_int_short": "I4_132"
+  },
+  "215": {
+    "pg_int": "-43m",
+    "sg_int": "P-43m",
+    "sg_int_short": "P-43m"
+  },
+  "216": {
+    "pg_int": "-43m",
+    "sg_int": "F-43m",
+    "sg_int_short": "F-43m"
+  },
+  "217": {
+    "pg_int": "-43m",
+    "sg_int": "I-43m",
+    "sg_int_short": "I-43m"
+  },
+  "218": {
+    "pg_int": "-43m",
+    "sg_int": "P-43n",
+    "sg_int_short": "P-43n"
+  },
+  "219": {
+    "pg_int": "-43m",
+    "sg_int": "F-43c",
+    "sg_int_short": "F-43c"
+  },
+  "220": {
+    "pg_int": "-43m",
+    "sg_int": "I-43d",
+    "sg_int_short": "I-43d"
+  },
+  "221": {
+    "pg_int": "m-3m",
+    "sg_int": "Pm-3m",
+    "sg_int_short": "Pm-3m"
+  },
+  "222": {
+    "pg_int": "m-3m",
+    "sg_int": "Pn-3n",
+    "sg_int_short": "Pn-3n"
+  },
+  "223": {
+    "pg_int": "m-3m",
+    "sg_int": "Pm-3n",
+    "sg_int_short": "Pm-3n"
+  },
+  "224": {
+    "pg_int": "m-3m",
+    "sg_int": "Pn-3m",
+    "sg_int_short": "Pn-3m"
+  },
+  "225": {
+    "pg_int": "m-3m",
+    "sg_int": "Fm-3m",
+    "sg_int_short": "Fm-3m"
+  },
+  "226": {
+    "pg_int": "m-3m",
+    "sg_int": "Fm-3c",
+    "sg_int_short": "Fm-3c"
+  },
+  "227": {
+    "pg_int": "m-3m",
+    "sg_int": "Fd-3m",
+    "sg_int_short": "Fd-3m"
+  },
+  "228": {
+    "pg_int": "m-3m",
+    "sg_int": "Fd-3c",
+    "sg_int_short": "Fd-3c"
+  },
+  "229": {
+    "pg_int": "m-3m",
+    "sg_int": "Im-3m",
+    "sg_int_short": "Im-3m"
+  },
+  "230": {
+    "pg_int": "m-3m",
+    "sg_int": "Ia-3d",
+    "sg_int_short": "Ia-3d"
+  }
+}

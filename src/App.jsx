@@ -1,6 +1,7 @@
 import "./App.css";
 
 import Popover from "react-bootstrap/Popover";
+import { Table } from "react-bootstrap";
 
 import {
   TestButton,
@@ -11,6 +12,7 @@ import {
   ExploreButton,
   formatChemicalFormula,
   formatSpaceGroupSymbol,
+  getSymmetryInfo,
 } from "../lib/main.js";
 
 const helpButtonContents = (
@@ -20,6 +22,24 @@ const helpButtonContents = (
 );
 
 function App() {
+  let symmetryTable = [];
+  for (let spgn = 1; spgn <= 230; spgn++) {
+    let symmetryInfo = getSymmetryInfo(spgn);
+    symmetryTable.push(
+      <tr key={spgn}>
+        <td>{spgn}</td>
+        <td>{symmetryInfo.space_group_symbol}</td>
+        <td>{symmetryInfo.point_group_symbol}</td>
+        <td>{symmetryInfo.crystal_family_pearson}</td>
+        <td>{symmetryInfo.crystal_family}</td>
+        <td>{symmetryInfo.crystal_system}</td>
+        <td>{symmetryInfo.lattice_system}</td>
+        <td>{symmetryInfo.bravais_lattice_pearson}</td>
+        <td>{symmetryInfo.bravais_lattice}</td>
+      </tr>
+    );
+  }
+
   return (
     <div className="test-container">
       <span>TestButton</span>
@@ -44,9 +64,6 @@ function App() {
       <div style={{ width: "80px", padding: "10px" }}>
         <McloudSpinner />
       </div>
-      <span>utils.jsx</span>
-      <div>{formatChemicalFormula("CO2")}</div>
-      <div>{formatSpaceGroupSymbol("P6_3/mcm")}</div>
       <span>StructDownloadButton</span>
       <div>
         <StructDownloadButton
@@ -61,6 +78,28 @@ function App() {
           explore_url="https://www.materialscloud.org/explore/mc3d"
           uuid="1d546de0-fb37-4faa-bb25-b3d02773f5e6"
         />
+      </div>
+      <span>utils/formatting.jsx</span>
+      <div>{formatChemicalFormula("CO2")}</div>
+      <div>{formatSpaceGroupSymbol("P6_3/mcm")}</div>
+      <span>utils/symmetry.js</span>
+      <div>
+        <Table bordered striped>
+          <thead>
+            <tr>
+              <th>Space group number</th>
+              <th>Space group symbol</th>
+              <th>Point group symbol</th>
+              <th>Crystal family Pearson</th>
+              <th>Crystal family</th>
+              <th>Crystal system</th>
+              <th>Lattice system</th>
+              <th>Bravais lattice Pearson</th>
+              <th>Bravais lattice</th>
+            </tr>
+          </thead>
+          <tbody>{symmetryTable}</tbody>
+        </Table>
       </div>
     </div>
   );
