@@ -82,6 +82,7 @@ function App() {
       <span>utils/formatting.jsx</span>
       <div>{formatChemicalFormula("CO2")}</div>
       <div>{formatSpaceGroupSymbol("P6_3/mcm")}</div>
+      <div>{formatSpaceGroupSymbol("P-42_1m")}</div>
       <span>utils/symmetry.js</span>
       <div>
         <Table bordered striped>
