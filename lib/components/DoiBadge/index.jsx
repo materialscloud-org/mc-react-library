@@ -13,7 +13,7 @@ export const DoiBadge = ({ doi_id, doi, label = "DOI" }) => {
       <span className={styles.doi_badge}>
         <span className={styles.doi_left}>{label}</span>
         <a
-          href={`https://doi.org/10.24435/materialscloud:${doi_id}`}
+          href={`https://doi.org/${doi_text}`}
           className={styles.doi_right}
           target="_blank"
         >
