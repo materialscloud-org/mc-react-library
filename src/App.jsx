@@ -50,6 +50,9 @@ function App() {
       <div>
         <DoiBadge doi_id="ab-cd" />
       </div>
+      <div>
+        <DoiBadge doi="custom-doi" label="custom-label" />
+      </div>
       <span>HelpButton</span>
       <div style={{ fontSize: "12px" }}>
         <HelpButton popover={helpButtonContents} placement="top" />
