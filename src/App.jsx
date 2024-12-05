@@ -51,7 +51,11 @@ function App() {
         <DoiBadge doi_id="ab-cd" />
       </div>
       <div>
-        <DoiBadge doi="custom-doi" label="custom-label" />
+        <DoiBadge
+          doi="custom-doi/10.ab.cd"
+          label="custom-label"
+          color="#a2e5b7"
+        />
       </div>
       <span>HelpButton</span>
       <div style={{ fontSize: "12px" }}>
