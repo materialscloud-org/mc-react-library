@@ -1,0 +1,57 @@
+/* Container for centering the switch horizontally */
+.toggle-switch-big-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* This ensures the switch is also centered vertically if needed */
+  width: 100%; /* Or any desired width */
+}
+
+.toggle-switch-big {
+  background-color: lightgray;
+  border: 1px solid;
+  border-radius: 99px;
+  width: var(--switch-length, 50px);
+  height: 28px;
+  transition: background-color 0.1s ease, border-color, 0.2s ease;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+
+.toggle-switch-big .thumb {
+  height: 20px;
+  width: 20px;
+  background-color: rgb(13, 110, 253);
+  border-radius: 99px;
+  transform: translateX(0);
+  transition: left 0.1s ease;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-switch-big.toggled {
+  background-color: lightgray;
+}
+
+.toggle-switch-big:hover {
+  filter: brightness(85%);
+}
+
+.toggle-switch-big.toggled .thumb {
+  background-color: rgb(13, 110, 253);
+  left: calc(var(--switch-length, 50px) - 25px);
+}
+
+.toggle-switch-big-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--label-font-size, 12px); /* Fallback if not set */
+  color: white;
+  pointer-events: none;
+  font-weight: bold;
+  user-select: none;
+}

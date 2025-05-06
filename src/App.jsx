@@ -13,6 +13,9 @@ import {
   formatChemicalFormula,
   formatSpaceGroupSymbol,
   getSymmetryInfo,
+  ToggleSwitchBig,
+  ToggleSwitch,
+  FlipperSwitch,
 } from "../lib/main.js";
 
 const helpButtonContents = (
@@ -50,12 +53,43 @@ function App() {
       <div>
         <DoiBadge doi_id="ab-cd" />
       </div>
+      <DoiBadge
+        doi="custom-doi/10.ab.cd"
+        label="custom-label"
+        color="#a2e5b7"
+      />
+      <span>ToggleSwitches</span>
       <div>
-        <DoiBadge
-          doi="custom-doi/10.ab.cd"
-          label="custom-label"
-          color="#a2e5b7"
+        <ToggleSwitchBig switchLength="40px" />
+      </div>
+      <div>
+        <ToggleSwitchBig
+          switchLength="120px"
+          onLabel="LT2"
+          offLabel="LT1"
+          fontSize="25px"
         />
+      </div>
+      <div>
+        <ToggleSwitchBig
+          switchLength="120px"
+          onLabel="Conventional"
+          offLabel="Primitive"
+          fontSize="10px"
+        />
+      </div>
+      <div style={{ padding: "8px" }}>
+        <ToggleSwitch switchLength="40px" />
+      </div>
+      <div style={{ padding: "8px" }}>
+        <ToggleSwitch thumbClassName="custom-thumb-color" />
+      </div>
+      <div style={{ padding: "8px" }}>
+        <ToggleSwitch switchLength="120px" />
+      </div>
+      <span>FlipperSwitch</span>
+      <div style={{ padding: "4px" }}>
+        <FlipperSwitch switchLength="40px" />
       </div>
       <span>HelpButton</span>
       <div style={{ fontSize: "12px" }}>
