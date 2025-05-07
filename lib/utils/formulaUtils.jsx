@@ -25,7 +25,7 @@ export function formatTitle(formulaStr, id, method) {
 }
 
 export function calculateDensity(formula, pt, volume) {
-  // currently uses scoped pt to determine densities.
+  // uses pt and  to determine densities.
   var elnum = formula.split(/(?=[A-Z])/);
   let totMz = 0;
 
