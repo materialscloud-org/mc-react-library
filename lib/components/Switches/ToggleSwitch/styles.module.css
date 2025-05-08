@@ -1,5 +1,5 @@
-/* Wrapper to contain the button + side labels */
-.toggle-switch-wrapper {
+/* styles.module.css */
+.toggleSwitchWrapper {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -8,20 +8,18 @@
   font-size: var(--label-font-size, 12px);
 }
 
-.toggle-label {
+.toggleLabel {
   font-weight: normal;
   color: black;
 }
 
-/* Existing centering still works for the button */
-.toggle-switch-container {
+.toggleSwitchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Existing button styles */
-.toggle-switch {
+.toggleSwitch {
   background-color: lightgray;
   border: 0px solid;
   border-radius: 99px;
@@ -33,7 +31,7 @@
   position: relative;
 }
 
-.toggle-switch .thumb {
+.toggleSwitch .thumb {
   height: 18px;
   width: 18px;
   background-color: rgb(13, 110, 253);
@@ -45,15 +43,15 @@
   transform: translateY(-50%);
 }
 
-.toggle-switch.toggled {
+.toggleSwitch.toggled {
   background-color: rgb(211, 211, 211);
 }
 
-.toggle-switch:hover {
+.toggleSwitch:hover {
   filter: brightness(85%);
 }
 
-.toggle-switch.toggled .thumb {
+.toggleSwitch.toggled .thumb {
   background-color: rgb(13, 110, 253);
   left: calc(var(--switch-length, 50px) - 15px);
 }

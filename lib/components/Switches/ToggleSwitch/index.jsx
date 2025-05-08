@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles.css";
+import styles from "./styles.module.css";
 
 export function ToggleSwitch({
   switchLength = "50px",
@@ -7,7 +7,7 @@ export function ToggleSwitch({
   labelRight = "Right",
   fontSize = "12px",
   onToggle = () => {},
-  labelClassName = "", // Allow custom css to all elements
+  labelClassName = "",
   containerClassName = "",
   switchClassName = "",
   thumbClassName = "",
@@ -22,28 +22,24 @@ export function ToggleSwitch({
 
   return (
     <div
-      className={`toggle-switch-wrapper ${containerClassName}`}
+      className={`${styles.toggleSwitchWrapper} ${containerClassName}`}
       style={{ fontSize }}
     >
-      <span
-        className={`toggle-label${labelClassName ? ` ${labelClassName}` : ""}`}
-      >
+      <span className={`${styles.toggleLabel} ${labelClassName}`}>
         {labelLeft}
       </span>
-      <div className="toggle-switch-container">
+      <div className={styles.toggleSwitchContainer}>
         <button
-          className={`toggle-switch ${
-            toggled ? "toggled" : ""
+          className={`${styles.toggleSwitch} ${
+            toggled ? styles.toggled : ""
           } ${switchClassName}`}
           onClick={handleClick}
           style={{ "--switch-length": switchLength }}
         >
-          <div className={`thumb ${thumbClassName}`} />
+          <div className={`${styles.thumb} ${thumbClassName}`} />
         </button>
       </div>
-      <span
-        className={`toggle-label${labelClassName ? ` ${labelClassName}` : ""}`}
-      >
+      <span className={`${styles.toggleLabel} ${labelClassName}`}>
         {labelRight}
       </span>
     </div>

@@ -13,10 +13,10 @@ import {
   formatChemicalFormula,
   formatSpaceGroupSymbol,
   getSymmetryInfo,
-  ToggleSwitchBig,
   ToggleSwitch,
-  FlipperSwitch,
 } from "../lib/main.js";
+
+import tests from "../tests/simpleTests.js";
 
 const helpButtonContents = (
   <Popover>
@@ -25,6 +25,8 @@ const helpButtonContents = (
 );
 
 function App() {
+  tests();
+
   let symmetryTable = [];
   for (let spgn = 1; spgn <= 230; spgn++) {
     let symmetryInfo = getSymmetryInfo(spgn);
@@ -58,38 +60,9 @@ function App() {
         label="custom-label"
         color="#a2e5b7"
       />
-      <span>ToggleSwitches</span>
-      <div>
-        <ToggleSwitchBig switchLength="40px" />
-      </div>
-      <div>
-        <ToggleSwitchBig
-          switchLength="120px"
-          onLabel="LT2"
-          offLabel="LT1"
-          fontSize="25px"
-        />
-      </div>
-      <div>
-        <ToggleSwitchBig
-          switchLength="120px"
-          onLabel="Conventional"
-          offLabel="Primitive"
-          fontSize="10px"
-        />
-      </div>
-      <div style={{ padding: "8px" }}>
-        <ToggleSwitch switchLength="40px" />
-      </div>
-      <div style={{ padding: "8px" }}>
-        <ToggleSwitch thumbClassName="custom-thumb-color" />
-      </div>
-      <div style={{ padding: "8px" }}>
-        <ToggleSwitch switchLength="120px" />
-      </div>
-      <span>FlipperSwitch</span>
-      <div style={{ padding: "4px" }}>
-        <FlipperSwitch switchLength="40px" />
+      <span>ToggleSwitch</span>
+      <div style={{ marginTop: "8px" }}>
+        <ToggleSwitch />
       </div>
       <span>HelpButton</span>
       <div style={{ fontSize: "12px" }}>
