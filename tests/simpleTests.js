@@ -79,7 +79,7 @@ export default function tests(tolerance = 0.0001) {
   // Test 6: Determinant (with tolerance)
   console.assert(
     Math.abs(matrix.determinant(testMatrix) - -18) < tolerance,
-    "Determinant of matrix should be approximately -18"
+    "Determinant of matrix should be -18"
   );
 
   console.log("All Matrix tests passed!");
