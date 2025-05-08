@@ -1,21 +1,16 @@
 import { matrix } from "../lib/main";
-import { formula } from "../lib/main";
+import { formula } from "../lib/main"; // Import formula in case it's needed later
 
-export default function tests() {
-  console.log("Printing Matrix Tests");
-
+export default function tests(tolerance = 0.0001) {
+  // Test data
   const test_vector1 = [3, 4];
   const test_vector2 = [8, 4];
-  console.log("Test Vectors", test_vector1, test_vector2);
-
-  console.log("norm vec1:", matrix.norm(test_vector1), ",expected 5");
-  console.log("norm vec2:", matrix.norm(test_vector2), ",expected 8.94427");
 
   const testMatrix = [
     [1, 2, 3],
     [1, 5, 9],
     [6, 8, 4],
-  ]; // first test passed.
+  ];
 
   const transposeMatrix = [
     [1, 1, 6],
@@ -41,44 +36,51 @@ export default function tests() {
     [-2.7777, 0.77777, 0.3333],
     [1.2222, -0.2222, -0.1666],
   ];
-  console.log("Test Matrix", testMatrix);
 
-  console.log(
-    "Transpose:",
-    matrix.transpose(testMatrix),
-    ",expected:",
-    transposeMatrix
+  console.assert(
+    Math.abs(matrix.norm(test_vector1) - 5) < tolerance,
+    "Norm of vec1 should be 5"
+  );
+  console.assert(
+    Math.abs(matrix.norm(test_vector2) - 8.94427) < tolerance,
+    "Norm of vec2 should be 8.94427"
   );
 
-  console.log(
-    "Scaled Matrix:",
-    matrix.scalarMultiply(testMatrix, 2),
-    ",expected: ",
-    scaleMatrix
+  // Test 2: Matrix Transpose
+  console.assert(
+    JSON.stringify(matrix.transpose(testMatrix)) ===
+      JSON.stringify(transposeMatrix),
+    "Transpose of matrix is incorrect"
   );
 
-  console.log(
-    "Scaled Matrix:",
-    matrix.scalarMultiply(testMatrix),
-    ",expected: ",
-    scaleMatrix
+  // Test 3: Matrix Scalar Multiplication
+  console.assert(
+    JSON.stringify(matrix.scalarMultiply(testMatrix, 2)) ===
+      JSON.stringify(scaleMatrix),
+    "Scalar multiplication of matrix by 2 is incorrect"
   );
 
-  console.log(
-    "identity matrix:",
-    matrix.identityMatrix(4),
-    " expected: ",
-    largeIMatrix
+  // Test 4: Identity Matrix
+  console.assert(
+    JSON.stringify(matrix.identityMatrix(4)) === JSON.stringify(largeIMatrix),
+    "Identity matrix generation is incorrect"
   );
 
-  console.log(
-    "inverted matrix",
-    matrix.invertMatrix(testMatrix),
-    " expected:",
-    invertMatrix
+  // Test 5: Matrix Inversion (with tolerance)
+  matrix.invertMatrix(testMatrix).forEach((row, i) => {
+    row.forEach((value, j) => {
+      console.assert(
+        Math.abs(value - invertMatrix[i][j]) < tolerance,
+        `Matrix inversion mismatch at position [${i},${j}]`
+      );
+    });
+  });
+
+  // Test 6: Determinant (with tolerance)
+  console.assert(
+    Math.abs(matrix.determinant(testMatrix) - -18) < tolerance,
+    "Determinant of matrix should be approximately -18"
   );
 
-  console.log("Determinant:", matrix.determinant(testMatrix), ",expected: -18");
-
-  return;
+  console.log("All Matrix tests passed!");
 }
