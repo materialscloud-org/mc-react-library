@@ -1,0 +1,57 @@
+/* styles.module.css */
+.toggleSwitchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  font-size: var(--label-font-size, 12px);
+}
+
+.toggleLabel {
+  font-weight: normal;
+  color: black;
+}
+
+.toggleSwitchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggleSwitch {
+  background-color: lightgray;
+  border: 0px solid;
+  border-radius: 99px;
+  width: var(--switch-length, 50px);
+  height: 10px;
+  transition: background-color 0.1s ease, border-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.55);
+  position: relative;
+}
+
+.toggleSwitch .thumb {
+  height: 18px;
+  width: 18px;
+  background-color: rgb(13, 110, 253);
+  border-radius: 99px;
+  transition: left 0.1s ease;
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  transform: translateY(-50%);
+}
+
+.toggleSwitch.toggled {
+  background-color: rgb(211, 211, 211);
+}
+
+.toggleSwitch:hover {
+  filter: brightness(85%);
+}
+
+.toggleSwitch.toggled .thumb {
+  background-color: rgb(13, 110, 253);
+  left: calc(var(--switch-length, 50px) - 15px);
+}
