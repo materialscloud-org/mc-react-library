@@ -1,0 +1,27 @@
+.card {
+  width: 100%;
+  max-width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #e2e8f0;
+  padding: 10px 15px;
+
+  border-radius: 6px;
+  box-shadow: 0 2px 6px 2px rgb(0 0 0 / 0.15);
+  overflow: visible;
+}
+
+.header {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.body {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.footer {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #5d5d5d;
+}

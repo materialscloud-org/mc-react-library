@@ -17,6 +17,7 @@ import {
 } from "../lib/main.js";
 
 import tests from "../tests/simpleTests.js";
+import { McloudCard } from "../lib/components/McloudCard/index.jsx";
 
 const helpButtonContents = (
   <Popover>
@@ -41,7 +42,7 @@ function App() {
         <td>{symmetryInfo.lattice_system}</td>
         <td>{symmetryInfo.bravais_lattice_pearson}</td>
         <td>{symmetryInfo.bravais_lattice}</td>
-      </tr>
+      </tr>,
     );
   }
 
@@ -55,11 +56,30 @@ function App() {
       <div>
         <DoiBadge doi_id="ab-cd" />
       </div>
+
       <DoiBadge
         doi="custom-doi/10.ab.cd"
         label="custom-label"
         color="#a2e5b7"
       />
+
+      <span>McloudCard</span>
+      <div>
+        <McloudCard
+          header={<span>Header</span>}
+          footer={<span>Footer</span>}
+          className="max-w-md mx-auto"
+          childrenClassName="space-y-3"
+        >
+          <p>
+            This is an example card body. It can contain any React content. It
+            expands to fill its container wrapping when it has overflowed
+          </p>
+
+          <button>Action</button>
+        </McloudCard>
+      </div>
+
       <span>ToggleSwitch</span>
       <div style={{ marginTop: "8px" }}>
         <ToggleSwitch />
