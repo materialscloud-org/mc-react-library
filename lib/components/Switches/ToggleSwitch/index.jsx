@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 export function ToggleSwitch({
@@ -6,17 +6,30 @@ export function ToggleSwitch({
   labelLeft = "Left",
   labelRight = "Right",
   fontSize = "12px",
+  toggled: controlledToggled,
   onToggle = () => {},
   labelClassName = "",
   containerClassName = "",
   switchClassName = "",
   thumbClassName = "",
 }) {
-  const [toggled, setToggled] = useState(false);
+  const [internalToggled, setInternalToggled] = useState(false);
+  const isControlled = controlledToggled !== undefined;
+  const toggled = isControlled ? controlledToggled : internalToggled;
+
+  useEffect(() => {
+    if (isControlled) {
+      setInternalToggled(controlledToggled);
+    }
+  }, [controlledToggled, isControlled]);
 
   const handleClick = () => {
     const newState = !toggled;
-    setToggled(newState);
+
+    if (!isControlled) {
+      setInternalToggled(newState);
+    }
+
     onToggle(newState);
   };
 
@@ -30,6 +43,7 @@ export function ToggleSwitch({
       </span>
       <div className={styles.toggleSwitchContainer}>
         <button
+          type="button"
           className={`${styles.toggleSwitch} ${
             toggled ? styles.toggled : ""
           } ${switchClassName}`}
