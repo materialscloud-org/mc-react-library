@@ -1,0 +1,164 @@
+.mc-history {
+  width: 100%;
+}
+
+.mc-history__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.mc-history__title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  color: #1e293b;
+}
+
+.mc-history__clear {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #dc2626;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.mc-history__clear:hover {
+  color: #b91c1c;
+}
+
+.mc-history__clear:focus {
+  outline: none;
+}
+
+.mc-history__clear:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.mc-history__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mc-history__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  background: #f8fafc;
+}
+
+.mc-history__details {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.mc-history__name {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #0f172a;
+}
+
+.mc-history__date {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #64748b;
+}
+
+.mc-history__format {
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: #eff6ff;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  color: #1d4ed8;
+}
+
+.mc-history__load {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.25rem 0.625rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: #2563eb;
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 150ms ease;
+}
+
+.mc-history__load:hover {
+  background: #1d4ed8;
+}
+
+.mc-history__load:focus {
+  outline: none;
+}
+
+.mc-history__load:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.mc-history__delete {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.mc-history__delete:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.mc-history__delete:focus {
+  outline: none;
+}
+
+.mc-history__delete:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

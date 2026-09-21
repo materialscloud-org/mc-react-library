@@ -54,3 +54,22 @@ export function DownloadIcon({ className = "h-4 w-4", ...rest }) {
     </svg>
   );
 }
+
+export function UploadIcon({ className = "h-4 w-4", ...rest }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+      {...rest}
+    >
+      <path d="M12 16V4m0 0L7 9m5-5 5 5" />
+      <path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4" />
+    </svg>
+  );
+}

@@ -1,5 +1,7 @@
 import "./App.css";
 
+import { useState } from "react";
+
 import {
   TestButton,
   DoiBadge,
@@ -14,8 +16,13 @@ import {
   McCopyAccordion,
   McCopyExtraAccordion,
   McInfoAccordion,
+  McDropzone,
+  McHistoryList,
+  createHistoryStore,
   HashModal,
 } from "../lib/main.js";
+
+const demoHistory = createHistoryStore("mc-react-library.demoHistory");
 
 import tests from "../tests/simpleTests.js";
 import { McloudCard } from "../lib/components/McloudCard/index.jsx";
@@ -23,6 +30,21 @@ import { McloudCard } from "../lib/components/McloudCard/index.jsx";
 const helpButtonContents = "Test";
 
 function App() {
+  const [demoFile, setDemoFile] = useState(null);
+  const [demoHistoryEntries, setDemoHistoryEntries] = useState(() => [
+    {
+      id: "demo-1",
+      fileName: "Si_POSCAR",
+      format: "poscar",
+      date: new Date().toISOString(),
+    },
+    {
+      id: "demo-2",
+      fileName: "graphite.cif",
+      format: "cif",
+      date: new Date().toISOString(),
+    },
+  ]);
   let symmetryTable = [];
   for (let spgn = 1; spgn <= 230; spgn++) {
     let symmetryInfo = getSymmetryInfo(spgn);
@@ -85,6 +107,39 @@ function App() {
           </button>
         }
       />
+
+      <span>McDropzone</span>
+      <div>
+        <McDropzone
+          accept=".cif,.xyz,.poscar"
+          fileName={demoFile}
+          onFile={(file) => {
+            setDemoFile(file.name);
+            setDemoHistoryEntries(
+              demoHistory.add({
+                id: crypto.randomUUID(),
+                fileName: file.name,
+                format: file.name.split(".").pop(),
+                date: new Date().toISOString(),
+              }),
+            );
+          }}
+          hint="CIF, XYZ and POSCAR files (demo persists to localStorage)"
+        />
+      </div>
+
+      <span>McHistoryList</span>
+      <div>
+        <McHistoryList
+          title="Demo history"
+          entries={demoHistoryEntries}
+          onLoad={(entry) => setDemoFile(entry.fileName)}
+          onDelete={(id) =>
+            setDemoHistoryEntries(demoHistory.remove(id))
+          }
+          onClear={() => setDemoHistoryEntries(demoHistory.clear())}
+        />
+      </div>
 
       <span>Overrides (tokens + classes)</span>
       <div>
