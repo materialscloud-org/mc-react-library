@@ -35,8 +35,8 @@ Project structure:
 For developing the library of components, start the demo page (in `src\`) by
 
 ```
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 and update the components in `lib\`.
@@ -46,14 +46,14 @@ and update the components in `lib\`.
 To build the library and test it locally in an external application (before publishing to npm), use
 
 ```
-npm run build
-npm pack
+pnpm run build
+pnpm pack
 ```
 
 which will create a `.tgz` file that can then be installed by the external application via
 
 ```
-npm install /path/to/mc-react-library-x.y.z.tgz
+pnpm install /path/to/mc-react-library-x.y.z.tgz
 ```
 
 ### Publishing a new version
@@ -61,6 +61,6 @@ npm install /path/to/mc-react-library-x.y.z.tgz
 To make a new version and publish to npm via GitHub Actions:
 
 ```bash
-npm version <major/minor/patch>
+pnpm version <major/minor/patch>
 git push --follow-tags
 ```
