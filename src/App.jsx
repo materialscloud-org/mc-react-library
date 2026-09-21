@@ -12,6 +12,7 @@ import {
   getSymmetryInfo,
   ToggleSwitch,
   McCopyAccordion,
+  McCopyExtraAccordion,
   McInfoAccordion,
   HashModal,
 } from "../lib/main.js";
@@ -68,6 +69,22 @@ function App() {
       <McInfoAccordion title="About this entry">
         <p>Generic rich content goes here — text, links, or any React nodes.</p>
       </McInfoAccordion>
+
+      <div>Mc Copy Accordion with extra action</div>
+      <McCopyExtraAccordion
+        title="PW.in + input set"
+        text={"pw input text"}
+        filename="PW.in"
+        extraActions={
+          <button
+            type="button"
+            className="text-renderer__action"
+            onClick={() => alert("zip download goes here")}
+          >
+            <span>Input set (.zip)</span>
+          </button>
+        }
+      />
 
       <span>Overrides (tokens + classes)</span>
       <div>
