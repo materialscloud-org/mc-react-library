@@ -1,0 +1,31 @@
+/* Shared design tokens for mc-react-library accordion components.
+ *
+ * McCopyAccordion and McInfoAccordion both reference these variables so the
+ * two stay visually consistent. Component-level custom properties
+ * (e.g. `--text-renderer-border`) default to the tokens below and can still
+ * be overridden per instance for theming.
+ */
+
+:root {
+  --mc-border: #e2e8f0;
+  --mc-surface: #ffffff;
+  --mc-header-bg: #eff6ff;
+  --mc-accent-bg: #dbeafe;
+  --mc-accent: #2563eb;
+  --mc-button-border: #bfdbfe;
+  --mc-button-text: #1d4ed8;
+  --mc-button-hover: #eff6ff;
+  --mc-text: #1e293b;
+  --mc-content-border: #f1f5f9;
+  --mc-content-text: #0f172a;
+
+  --mc-radius: 4px;
+
+  --mc-shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
+  --mc-shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+
+  --mc-font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}

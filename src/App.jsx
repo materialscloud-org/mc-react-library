@@ -1,8 +1,5 @@
 import "./App.css";
 
-import Popover from "react-bootstrap/Popover";
-import { Table } from "react-bootstrap";
-
 import {
   TestButton,
   DoiBadge,
@@ -14,20 +11,17 @@ import {
   formatSpaceGroupSymbol,
   getSymmetryInfo,
   ToggleSwitch,
+  McCopyAccordion,
+  McInfoAccordion,
+  HashModal,
 } from "../lib/main.js";
 
 import tests from "../tests/simpleTests.js";
 import { McloudCard } from "../lib/components/McloudCard/index.jsx";
 
-const helpButtonContents = (
-  <Popover>
-    <Popover.Body>Test</Popover.Body>
-  </Popover>
-);
+const helpButtonContents = "Test";
 
 function App() {
-  tests();
-
   let symmetryTable = [];
   for (let spgn = 1; spgn <= 230; spgn++) {
     let symmetryInfo = getSymmetryInfo(spgn);
@@ -63,6 +57,39 @@ function App() {
         color="#a2e5b7"
       />
 
+      <div>Mc Text Accordion</div>
+      <McCopyAccordion
+        title="KPOINTS (VASP)"
+        text={"vaspKpointsText"}
+        filename="KPOINTS"
+      />
+
+      <div>Mc Info Accordion</div>
+      <McInfoAccordion title="About this entry">
+        <p>Generic rich content goes here — text, links, or any React nodes.</p>
+      </McInfoAccordion>
+
+      <span>Overrides (tokens + classes)</span>
+      <div>
+        <McCopyAccordion
+          title="Themed via CSS variables"
+          text={"themed text"}
+          filename="themed.txt"
+          className="demo-purple"
+        />
+      </div>
+      <div>
+        <McInfoAccordion
+          title="Themed via classes.root"
+          classes={{ root: "demo-outline" }}
+        >
+          <p>
+            The <code>classes.root</code> class is appended after the default
+            classes, so it wins on equal specificity.
+          </p>
+        </McInfoAccordion>
+      </div>
+
       <span>McloudCard</span>
       <div>
         <McloudCard
@@ -83,6 +110,16 @@ function App() {
       <span>ToggleSwitch</span>
       <div style={{ marginTop: "8px" }}>
         <ToggleSwitch />
+      </div>
+      <span>HashModal (hash-driven)</span>
+      <div>
+        <a href="#demo-modal">Open demo modal</a>
+        <HashModal hash="demo-modal" title="Demo modal">
+          <p>
+            This modal opened because the URL hash matches. Close it via the
+            button, overlay click, or Escape key.
+          </p>
+        </HashModal>
       </div>
       <span>HelpButton</span>
       <div style={{ fontSize: "12px" }}>
@@ -118,8 +155,8 @@ function App() {
       <div>{formatSpaceGroupSymbol("P6_3/mcm")}</div>
       <div>{formatSpaceGroupSymbol("P-42_1m")}</div>
       <span>utils/symmetry.js</span>
-      <div>
-        <Table bordered striped>
+      {/* <div>
+        <table className="demo-table">
           <thead>
             <tr>
               <th>Space group number</th>
@@ -134,8 +171,8 @@ function App() {
             </tr>
           </thead>
           <tbody>{symmetryTable}</tbody>
-        </Table>
-      </div>
+        </table>
+      </div> */}
     </div>
   );
 }

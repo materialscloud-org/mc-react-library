@@ -12,6 +12,7 @@ export function ToggleSwitch({
   containerClassName = "",
   switchClassName = "",
   thumbClassName = "",
+  ...rest
 }) {
   const [internalToggled, setInternalToggled] = useState(false);
   const isControlled = controlledToggled !== undefined;
@@ -37,6 +38,7 @@ export function ToggleSwitch({
     <div
       className={`${styles.toggleSwitchWrapper} ${containerClassName}`}
       style={{ fontSize }}
+      {...rest}
     >
       <span className={`${styles.toggleLabel} ${labelClassName}`}>
         {labelLeft}

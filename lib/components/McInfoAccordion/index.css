@@ -1,0 +1,53 @@
+@import "../../accordion-base.css";
+
+/* Panel typography differs from McCopyAccordion (rich content instead of
+ * code text); shell, chevron and collapse animation come from .mc-acc__*.
+ */
+
+.info-accordion__toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin: 0;
+  padding: 1rem 1.25rem;
+
+  border: 0;
+  background: var(--mc-header-bg);
+
+  color: var(--mc-text);
+  font: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  text-align: left;
+
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 150ms ease;
+}
+
+.info-accordion__toggle:hover {
+  background: var(--mc-accent-bg);
+}
+
+.info-accordion__toggle:focus {
+  outline: none;
+}
+
+.info-accordion__toggle:focus-visible {
+  outline: 2px solid var(--mc-accent);
+  outline-offset: -2px;
+}
+
+.info-accordion__title {
+  min-width: 0;
+}
+
+.info-accordion__content {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: var(--mc-content-text);
+}

@@ -1,0 +1,103 @@
+.explore-button {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
+}
+
+.explore-button__link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.explore-button__logo {
+  height: 1em; /* use em to scale icon with font-size */
+  width: auto;
+  display: block;
+  margin: 0;
+  border: 0;
+}
+
+.explore-button__tooltip {
+  position: absolute;
+  z-index: 1080;
+  width: max-content;
+  max-width: 400px;
+  padding: 0.25rem 0.5rem;
+  background: #000;
+  border-radius: 0.375rem;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease;
+}
+
+.explore-button:hover .explore-button__tooltip,
+.explore-button:focus-within .explore-button__tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.explore-button__tooltip[data-placement="top"] {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.explore-button__tooltip[data-placement="bottom"] {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.explore-button__tooltip[data-placement="left"] {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.explore-button__tooltip[data-placement="right"] {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.explore-button__tooltip::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  transform: rotate(45deg);
+}
+
+.explore-button__tooltip[data-placement="top"]::before {
+  bottom: -4px;
+  left: 50%;
+  margin-left: -4px;
+}
+
+.explore-button__tooltip[data-placement="bottom"]::before {
+  top: -4px;
+  left: 50%;
+  margin-left: -4px;
+}
+
+.explore-button__tooltip[data-placement="left"]::before {
+  right: -4px;
+  top: 50%;
+  margin-top: -4px;
+}
+
+.explore-button__tooltip[data-placement="right"]::before {
+  left: -4px;
+  top: 50%;
+  margin-top: -4px;
+}

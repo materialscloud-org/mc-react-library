@@ -1,9 +1,8 @@
-import Button from "react-bootstrap/Button";
+import { useEffect, useRef, useState } from "react";
+import { DownloadIcon } from "../Icons";
+import "./index.css";
 
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
-
-import styles from "./styles.module.css";
+const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 const defaultFormats = [
   { format: "cif", label: "CIF" },
@@ -11,38 +10,87 @@ const defaultFormats = [
   { format: "xyz", label: "XYZ" },
 ];
 
-export function StructDownloadButton(props) {
-  const dl_url = `${props.aiida_rest_url}/nodes/${props.uuid}/download`;
-  const downloadFormats = props.download_formats || defaultFormats;
+export function StructDownloadButton({
+  aiida_rest_url,
+  uuid,
+  download_formats,
+  title = "Download",
+  className,
+  classes = {},
+  ...rest
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
 
-  const clickPopover = (
-    <Popover>
-      <Popover.Body style={{ padding: "5px 0px" }}>
-        <ul className={styles.download_dropdown_menu}>
-          {downloadFormats.map(({ format, label }) => (
-            <li key={format}>
-              <a href={`${dl_url}?download_format=${format}`}>{label}</a>
-            </li>
-          ))}
-        </ul>
-      </Popover.Body>
-    </Popover>
-  );
+  const dl_url = `${aiida_rest_url}/nodes/${uuid}/download`;
+  const downloadFormats = download_formats || defaultFormats;
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (event) => {
+      if (rootRef.current && !rootRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open ]);
 
   return (
-    <OverlayTrigger
-      trigger="click"
-      rootClose
-      placement={"bottom"}
-      overlay={clickPopover}
+    <div
+      ref={rootRef}
+      className={cx("struct-download", className, classes.root)}
+      {...rest}
     >
-      <Button
-        size="sm"
-        style={{ margin: "4px", padding: "2px 7px" }}
-        title={"Download"}
+      <button
+        type="button"
+        title={title}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        onClick={() => setOpen((value) => !value)}
+        className={cx("struct-download__button", classes.button)}
       >
-        <span className="bi bi-download" />
-      </Button>
-    </OverlayTrigger>
+        <DownloadIcon
+          className={cx("struct-download__icon", classes.icon)}
+        />
+      </button>
+      {open && (
+        <div className={cx("struct-download__dropdown", classes.dropdown)}>
+          <ul
+            role="menu"
+            className={cx("struct-download__menu", classes.menu)}
+          >
+            {downloadFormats.map(({ format, label }) => (
+              <li
+                key={format}
+                role="none"
+                className={cx(classes.menuItem)}
+                onClick={() => setOpen(false)}
+              >
+                <a
+                  role="menuitem"
+                  href={`${dl_url}?download_format=${format}`}
+                  className={cx(classes.menuLink)}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }

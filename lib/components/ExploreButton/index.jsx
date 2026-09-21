@@ -1,29 +1,46 @@
-import React from "react";
-
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-
-// use plain css as it's easier to overload bootstrap css ('tooltip-inner')
-import "./styles.css";
-
+import "./index.css";
 import AiidaLogo from "./aiida-logo-128.png";
 
-export function ExploreButton(props) {
-  var url = `${props.explore_url}/details/${props.uuid}?nodeType=NODE`;
+const cx = (...classes) => classes.filter(Boolean).join(" ");
+
+export function ExploreButton({
+  explore_url,
+  uuid,
+  placement = "bottom",
+  tooltip,
+  className,
+  classes = {},
+  ...rest
+}) {
+  const url = `${explore_url}/details/${uuid}?nodeType=NODE`;
+
   return (
-    <OverlayTrigger
-      placement={"bottom"}
-      overlay={
-        <Tooltip className="explore_btn_tooltip">
-          Browse provenance
-          <br />
-          {props.uuid}
-        </Tooltip>
-      }
-    >
-      <a href={url} target="_blank">
-        <img src={AiidaLogo} className="explore_btn_aiida_logo"></img>
+    <span className={cx("explore-button", className, classes.root)} {...rest}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={cx("explore-button__link", classes.link)}
+      >
+        <img
+          src={AiidaLogo}
+          alt="Explore provenance"
+          className={cx("explore-button__logo", classes.logo)}
+        />
       </a>
-    </OverlayTrigger>
+      <span
+        role="tooltip"
+        data-placement={placement}
+        className={cx("explore-button__tooltip", classes.tooltip)}
+      >
+        {tooltip ?? (
+          <>
+            Browse provenance
+            <br />
+            {uuid}
+          </>
+        )}
+      </span>
+    </span>
   );
 }

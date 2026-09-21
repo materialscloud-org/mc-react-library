@@ -1,6 +1,13 @@
 import styles from "./styles.module.css";
 
-export const DoiBadge = ({ doi_id, doi, label = "DOI", color = "#a2cbff" }) => {
+export const DoiBadge = ({
+  doi_id,
+  doi,
+  label = "DOI",
+  color = "#a2cbff",
+  className = "",
+  ...rest
+}) => {
   let doi_text = "";
   if (doi_id != null) {
     doi_text = `10.24435/materialscloud:${doi_id}`;
@@ -9,7 +16,7 @@ export const DoiBadge = ({ doi_id, doi, label = "DOI", color = "#a2cbff" }) => {
   }
 
   return (
-    <div className={styles.archive_doicitation}>
+    <div className={`${styles.archive_doicitation} ${className}`} {...rest}>
       <span className={styles.doi_badge}>
         <span className={styles.doi_left}>{label}</span>
         <a

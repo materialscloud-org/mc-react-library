@@ -1,0 +1,71 @@
+@import "./tokens.css";
+
+/* Shared accordion base: card shell, chevron, expand/collapse animation and
+ * content panel. Used by McCopyAccordion and McInfoAccordion so the two
+ * cannot drift apart. Component-specific CSS only adds header/action/
+ * typography differences on top of these hooks.
+ */
+
+/* Card shell */
+
+.mc-acc {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius);
+  background: var(--mc-surface);
+  box-shadow: var(--mc-shadow-sm);
+  transition: box-shadow 200ms ease;
+}
+
+.mc-acc--open {
+  box-shadow: var(--mc-shadow-md);
+}
+
+/* Chevron */
+
+.mc-acc__chevron {
+  display: flex;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--mc-accent-bg);
+  color: var(--mc-accent);
+  transition: transform 200ms ease;
+}
+
+.mc-acc__chevron--open {
+  transform: rotate(180deg);
+}
+
+.mc-acc__chevron-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Expand/collapse animation */
+
+.mc-acc__collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease-in-out;
+}
+
+.mc-acc__collapse--open {
+  grid-template-rows: 1fr;
+}
+
+.mc-acc__collapse-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Content panel */
+
+.mc-acc__panel {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--mc-content-border);
+}

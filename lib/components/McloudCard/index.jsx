@@ -37,6 +37,10 @@ import styles from "./styles.module.css";
  * Maximum height of the card when scrollable is enabled.
  * Defaults to 400px if not provided.
  *
+ * @param {object} [rest]
+ * Additional props spread onto the root card element
+ * (e.g. `id`, `data-*`, `aria-*`).
+ *
  * @returns {JSX.Element}
  */
 export function McloudCard({
@@ -48,6 +52,7 @@ export function McloudCard({
   style,
   scrollable = false,
   maxHeight,
+  ...rest
 }) {
   return (
     <div
@@ -61,6 +66,7 @@ export function McloudCard({
             }
           : {}),
       }}
+      {...rest}
     >
       {header && <div className={styles.header}>{header}</div>}
 

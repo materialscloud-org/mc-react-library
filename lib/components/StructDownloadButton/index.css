@@ -1,0 +1,101 @@
+.struct-download {
+  display: inline-block;
+  position: relative;
+}
+
+.struct-download__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  margin: 4px;
+  padding: 0;
+  background: #0d6efd;
+  border: 1px solid #0d6efd;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.struct-download__button:hover {
+  background: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+.struct-download__button:focus {
+  outline: none;
+}
+
+.struct-download__button:focus-visible {
+  outline: 2px solid #86b7fe;
+  outline-offset: 2px;
+}
+
+.struct-download__icon {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.struct-download__dropdown {
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 276px;
+  padding: 5px 0;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 17.5%);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #212529;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.struct-download__dropdown::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  margin-left: -6px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 17.5%);
+  border-right: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+}
+
+.struct-download__menu {
+  list-style-type: none; /* Remove bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.struct-download__menu li:hover {
+  background-color: #f5f5f5;
+}
+
+.struct-download__menu a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.struct-download__menu a:hover {
+  color: black;
+  text-decoration: none;
+}
