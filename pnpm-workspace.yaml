@@ -3,3 +3,6 @@ packages:
 
 allowBuilds:
   esbuild: true
+
+minimumReleaseAgeExclude:
+  - matsci-parse@0.18.9

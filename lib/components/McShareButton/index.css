@@ -1,0 +1,41 @@
+.mc-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.mc-share__button {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--mc-button-border, #bfdbfe);
+  border-radius: var(--mc-radius, 4px);
+  background: var(--mc-surface, #fff);
+  color: var(--mc-button-text, #1d4ed8);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mc-share__button:hover {
+  background: var(--mc-button-hover, #eff6ff);
+}
+
+.mc-share__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mc-share__link {
+  color: #475569;
+  word-break: break-all;
+}
+
+.mc-share__error {
+  color: #b91c1c;
+}
+
+.mc-share__store {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}

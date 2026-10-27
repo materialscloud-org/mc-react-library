@@ -11,9 +11,8 @@
 // fetches the endpoint, and converts it with matsci-parse (`fromOptimade` /
 // `fromStructureData`). Renders nothing; results go through `onLoaded`.
 //
-// Requires `matsci-parse`, which is bundled with this library
-// (tree-shaken to just the parsers this component uses) —
-// no extra install needed by the consumer.
+// Requires `matsci-parse`, a peer dependency of this library: the consumer
+// installs it, so the app and the library share one copy.
 // ─────────────────────────────────────────────────────────────────────────────
 import { useEffect } from "react";
 import { fromOptimade, fromStructureData } from "matsci-parse";

@@ -20,9 +20,16 @@ import {
   McHistoryList,
   createHistoryStore,
   HashModal,
+  McStructureUpload,
+  McShareButton,
+  createShareStore,
+  toStructureShare,
 } from "../lib/main.js";
 
 const demoHistory = createHistoryStore("mc-react-library.demoHistory");
+
+// Sharing is off unless the demo runs with VITE_SHARE_STORE=dev.
+const shareStore = createShareStore(import.meta.env.VITE_SHARE_STORE);
 
 import tests from "../tests/simpleTests.js";
 import { McloudCard } from "../lib/components/McloudCard/index.jsx";
@@ -31,6 +38,7 @@ const helpButtonContents = "Test";
 
 function App() {
   const [demoFile, setDemoFile] = useState(null);
+  const [loaded, setLoaded] = useState(null);
   const [demoHistoryEntries, setDemoHistoryEntries] = useState(() => [
     {
       id: "demo-1",
@@ -125,6 +133,34 @@ function App() {
             );
           }}
           hint="CIF, XYZ and POSCAR files (demo persists to localStorage)"
+        />
+      </div>
+
+      <span>McStructureUpload + McShareButton</span>
+      <div>
+        <McStructureUpload
+          historyKey="mc-react-library.demoStructures"
+          examples={[
+            {
+              label: "Si (diamond)",
+              url: "/examples/Si.cif",
+              family: "Semiconductors",
+            },
+          ]}
+          shareStore={shareStore}
+          onStructureParsed={setLoaded}
+        />
+        {loaded && (
+          <p>
+            Loaded {loaded.fileName} ({loaded.format},{" "}
+            {loaded.structure.sites.length} atoms)
+          </p>
+        )}
+        <McShareButton
+          store={shareStore}
+          data={loaded}
+          toDocument={toStructureShare}
+          shareId={loaded?.shareId}
         />
       </div>
 
