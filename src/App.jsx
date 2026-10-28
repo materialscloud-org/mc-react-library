@@ -22,14 +22,13 @@ import {
   HashModal,
   McStructureUpload,
   McShareButton,
-  createShareStore,
   toStructureShare,
 } from "../lib/main.js";
 
 const demoHistory = createHistoryStore("mc-react-library.demoHistory");
 
-// Sharing is off unless the demo runs with VITE_SHARE_STORE=dev.
-const shareStore = createShareStore(import.meta.env.VITE_SHARE_STORE);
+// The demo shares to the dev store (localhost:5173 is allow-listed there).
+const KV_URL = "https://kv-store.dev.materialscloud.org";
 
 import tests from "../tests/simpleTests.js";
 import { McloudCard } from "../lib/components/McloudCard/index.jsx";
@@ -147,7 +146,7 @@ function App() {
               family: "Semiconductors",
             },
           ]}
-          shareStore={shareStore}
+          kvUrl={KV_URL}
           onStructureParsed={setLoaded}
         />
         {loaded && (
@@ -157,7 +156,7 @@ function App() {
           </p>
         )}
         <McShareButton
-          store={shareStore}
+          kvUrl={KV_URL}
           data={loaded}
           toDocument={toStructureShare}
           shareId={loaded?.shareId}

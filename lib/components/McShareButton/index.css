@@ -1,20 +1,31 @@
+/* Matches the interactive phonon visualizer's share panel. */
 .mc-share {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
   font-size: 0.875rem;
 }
 
+.mc-share__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 .mc-share__button {
-  padding: 0.375rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--mc-button-border, #bfdbfe);
   border-radius: var(--mc-radius, 4px);
   background: var(--mc-surface, #fff);
   color: var(--mc-button-text, #1d4ed8);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
   font: inherit;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 150ms;
 }
 
 .mc-share__button:hover {
@@ -23,19 +34,50 @@
 
 .mc-share__button:disabled {
   opacity: 0.6;
-  cursor: not-allowed;
+  cursor: wait;
 }
 
-.mc-share__link {
-  color: #475569;
-  word-break: break-all;
+.mc-share__button:focus-visible {
+  outline: 2px solid var(--mc-accent, #2563eb);
+  outline-offset: 2px;
 }
 
 .mc-share__error {
-  color: #b91c1c;
+  margin: 0.5rem 0 0;
+  color: #dc2626;
+  font-size: 0.875rem;
+  text-align: right;
 }
 
-.mc-share__store {
-  color: #94a3b8;
+.mc-share__result {
+  max-width: 42rem;
+  margin: 0.75rem 0 0 auto;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--mc-radius, 4px);
+  background: #f8fafc;
+  font-size: 0.875rem;
+}
+
+.mc-share__row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mc-share__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--mc-radius, 4px);
+  background: #fff;
+  color: #334155;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+}
+
+.mc-share__note {
+  margin: 0.5rem 0 0;
+  color: #64748b;
   font-size: 0.75rem;
 }

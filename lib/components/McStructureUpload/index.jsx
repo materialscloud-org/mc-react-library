@@ -8,6 +8,7 @@ import {
   shortHashForUrl,
 } from "../RemoteStructureLoader";
 import { createHistoryStore } from "../../utils/history";
+import { fetchShare, shareIdFromLocation, syncAddressBar } from "../../utils/kvStore";
 import { fromStructureShare } from "../../utils/structureShare";
 import "./index.css";
 
@@ -21,14 +22,13 @@ const baseName = (url) => url.split(/[?#]/)[0].split("/").pop();
  * Everything an app needs to get a crystal structure from the user: a file
  * dropzone (any format matsci-parse's `parseStructure` reads), example
  * structures, a localStorage history, `?fromURL=` links (OPTIMADE / AiiDA,
- * via RemoteStructureLoader) and, when given an enabled `shareStore`,
- * `?<id>` share links.
+ * via RemoteStructureLoader) and `?<id>` share links from the kv-store at
+ * `kvUrl` (default: the production store).
  *
  *   <McStructureUpload
  *     historyKey="myapp.parsedStructures"
  *     examples={[{ label: "Si", url: "/examples/Si.cif" }]}
  *     validate={(s) => { if (isDisordered(s)) throw new Error("…"); }}
- *     shareStore={shareStore}
  *     onStructureParsed={({ format, structure, fileName, shareId }) => …}
  *   />
  *
@@ -50,7 +50,7 @@ export function McStructureUpload({
   title = "Drop your crystal structure here",
   accept = ".cif,.xyz,.vasp,.poscar,.xsf,.in,.pwi",
   hint = "CIF, XYZ, POSCAR, XSF and Quantum ESPRESSO files",
-  shareStore,
+  kvUrl,
   className,
   classes = {},
   ...rest
@@ -102,7 +102,7 @@ export function McStructureUpload({
       return false;
     }
     // A structure that did not come from a link makes the old link stale.
-    if (!fromLink) shareStore?.syncAddressBar(null);
+    if (!fromLink) syncAddressBar(null);
     onStructureParsed?.(parsed);
     if (remember) addToHistory(parsed, { unique: fromLink });
     return true;
@@ -120,12 +120,11 @@ export function McStructureUpload({
         { remember: false, fromLink: true },
       );
     }
-    const id = shareStore?.idFromLocation();
+    const id = shareIdFromLocation();
     if (!id) return;
     let cancelled = false;
     setBusy("shared structure");
-    shareStore
-      .fetch(id)
+    fetchShare(id, kvUrl)
       .then((doc) => {
         if (cancelled) return;
         const { structure, fileName } = fromStructureShare(doc);

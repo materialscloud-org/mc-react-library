@@ -2,9 +2,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { fromCIF } from "matsci-parse";
 
 import {
-  createShareStore,
+  KV_STORE_URL,
+  fetchShare,
   fromStructureShare,
+  shareIdFromLocation,
+  shareLinkFor,
+  syncAddressBar,
   toStructureShare,
+  uploadShare,
 } from "../lib/main.js";
 
 // A minimal browser location/history for the address-bar helpers.
@@ -26,48 +31,23 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-describe("createShareStore", () => {
-  it("is disabled without a store", () => {
-    for (const store of [undefined, null, ""]) {
-      const s = createShareStore(store);
-      expect(s.enabled).toBe(false);
-      expect(s.idFromLocation()).toBe(null);
-    }
-  });
-
-  it("does not touch the address bar when disabled", () => {
-    fakeWindow("?abc123");
-    createShareStore().syncAddressBar(null);
-    expect(window.location.search).toBe("?abc123");
-  });
-
-  it("knows the dev and production stores, and accepts a URL", () => {
-    expect(createShareStore("dev").name).toBe("dev");
-    expect(createShareStore("production").name).toBe("production");
-    expect(createShareStore("http://localhost:9000/").enabled).toBe(true);
-  });
-
-  it("rejects an unknown store name", () => {
-    expect(() => createShareStore("staging")).toThrow(/Unknown share store 'staging'/);
-  });
-
+describe("kv-store", () => {
   it("reads a bare ?<id> and ignores other parameters", () => {
     fakeWindow("?fromURL=https://x/y&abc_12-3");
-    expect(createShareStore("dev").idFromLocation()).toBe("abc_12-3");
+    expect(shareIdFromLocation()).toBe("abc_12-3");
     fakeWindow("?fromURL=https://x/y&format=optimade");
-    expect(createShareStore("dev").idFromLocation()).toBe(null);
+    expect(shareIdFromLocation()).toBe(null);
   });
 
   it("builds links and syncs the address bar", () => {
-    const s = createShareStore("dev");
-    expect(s.linkFor("abc")).toBe("https://app.example/tool/?abc");
-    s.syncAddressBar("abc");
+    expect(shareLinkFor("abc")).toBe("https://app.example/tool/?abc");
+    syncAddressBar("abc");
     expect(window.location.search).toBe("?abc");
-    s.syncAddressBar(null);
+    syncAddressBar(null);
     expect(window.location.search).toBe("");
   });
 
-  it("uploads and fetches documents", async () => {
+  it("uploads and fetches documents, by default on the production store", async () => {
     const calls = [];
     vi.stubGlobal("fetch", async (url, init) => {
       calls.push([url, init?.method ?? "GET", init?.body]);
@@ -75,12 +55,12 @@ describe("createShareStore", () => {
         ? { ok: true, status: 200, json: async () => ({ id: "abc" }) }
         : { ok: true, status: 200, json: async () => ({ hello: "world" }) };
     });
-    const s = createShareStore("dev");
-    expect(await s.upload({ hello: "world" })).toBe("abc");
-    expect(await s.fetch("abc")).toEqual({ hello: "world" });
+    expect(KV_STORE_URL).toBe("https://kv-store.materialscloud.org");
+    expect(await uploadShare({ hello: "world" })).toBe("abc");
+    expect(await fetchShare("abc", "http://localhost:9000/")).toEqual({ hello: "world" });
     expect(calls).toEqual([
-      ["https://kv-store.dev.materialscloud.org/api/shares", "POST", '{"hello":"world"}'],
-      ["https://kv-store.dev.materialscloud.org/api/shares/abc", "GET", undefined],
+      ["https://kv-store.materialscloud.org/api/shares", "POST", '{"hello":"world"}'],
+      ["http://localhost:9000/api/shares/abc", "GET", undefined],
     ]);
   });
 
@@ -89,9 +69,8 @@ describe("createShareStore", () => {
       ok: false,
       status: init?.method === "POST" ? 413 : 404,
     }));
-    const s = createShareStore("dev");
-    await expect(s.upload({})).rejects.toThrow(/too large/);
-    await expect(s.fetch("abc")).rejects.toThrow(/expire after 30 days/);
+    await expect(uploadShare({})).rejects.toThrow(/too large/);
+    await expect(fetchShare("abc")).rejects.toThrow(/expire after 30 days/);
   });
 });
 

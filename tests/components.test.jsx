@@ -1,11 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import {
-  createShareStore,
-  McShareButton,
-  McStructureUpload,
-} from "../lib/main.js";
+import { McShareButton, McStructureUpload } from "../lib/main.js";
 
 beforeEach(() => {
   globalThis.window = {
@@ -17,23 +13,30 @@ afterEach(() => {
 });
 
 describe("McShareButton", () => {
-  const data = { structure: {}, fileName: "x.cif" };
-
-  it("renders nothing when sharing is disabled", () => {
-    expect(renderToStaticMarkup(<McShareButton store={createShareStore()} data={data} />)).toBe("");
-  });
-
   it("renders nothing without data", () => {
-    expect(renderToStaticMarkup(<McShareButton store={createShareStore("dev")} data={null} />)).toBe("");
+    expect(renderToStaticMarkup(<McShareButton data={null} />)).toBe("");
   });
 
-  it("renders the button, and names a non-production store", () => {
-    const html = renderToStaticMarkup(<McShareButton store={createShareStore("dev")} data={data} />);
-    expect(html).toContain(">Share</button>");
-    expect(html).toContain("(dev share store)");
-    expect(
-      renderToStaticMarkup(<McShareButton store={createShareStore("production")} data={data} />),
-    ).not.toContain("share store");
+  it("renders the button", () => {
+    const html = renderToStaticMarkup(<McShareButton data={{ structure: {}, fileName: "x.cif" }} />);
+    expect(html).toContain("Share</button>");
+    expect(html).toContain('class="mc-share__actions"');
+  });
+
+  it("lets children lay out the pieces", () => {
+    const html = renderToStaticMarkup(
+      <McShareButton data={{}}>
+        {({ button, error, result }) => (
+          <section>
+            {button}
+            <button type="button">Download</button>
+            {error}
+            {result}
+          </section>
+        )}
+      </McShareButton>,
+    );
+    expect(html).toMatch(/^<section><button[^>]*class="mc-share__button".*Share<\/button><button type="button">Download<\/button><\/section>$/);
   });
 });
 
