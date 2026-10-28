@@ -38,7 +38,7 @@ describe("McShareButton", () => {
 });
 
 describe("McStructureUpload", () => {
-  it("renders the dropzone, terms and examples", () => {
+  it("renders the dropzone and examples", () => {
     const html = renderToStaticMarkup(
       <McStructureUpload
         examples={[
@@ -49,14 +49,12 @@ describe("McStructureUpload", () => {
     );
     expect(html).toContain("Upload a crystal structure");
     expect(html).toContain("Drop your crystal structure here");
-    expect(html).toContain('href="#terms"');
     expect(html).toContain('<optgroup label="Semiconductors">');
     expect(html).toContain(">Si</option>");
   });
 
-  it("can hide the terms and has no examples section without examples", () => {
-    const html = renderToStaticMarkup(<McStructureUpload terms={null} />);
-    expect(html).not.toContain("#terms");
+  it("has no examples section without examples", () => {
+    const html = renderToStaticMarkup(<McStructureUpload />);
     expect(html).not.toContain("<select");
   });
 });

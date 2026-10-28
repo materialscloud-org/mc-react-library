@@ -10,18 +10,6 @@
   font-weight: 600;
 }
 
-.mc-structure-upload__agree {
-  margin: 0.75rem 0 0;
-  color: #94a3b8;
-  font-size: 0.75rem;
-  text-align: center;
-}
-
-.mc-structure-upload__agree a {
-  color: var(--mc-accent, #2563eb);
-  font-weight: 500;
-}
-
 .mc-structure-upload__status {
   display: flex;
   align-items: center;
@@ -87,13 +75,4 @@
 
 .mc-structure-upload__history {
   margin-top: 1.25rem;
-}
-
-.mc-structure-upload__terms h3 {
-  margin: 0.75rem 0 0.25rem;
-  font-weight: 600;
-}
-
-.mc-structure-upload__terms p {
-  margin: 0 0 0.5rem;
 }

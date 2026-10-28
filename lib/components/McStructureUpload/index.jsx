@@ -3,14 +3,12 @@ import { fromJSON, parseStructure, toJSON } from "matsci-parse";
 
 import { McDropzone } from "../McDropzone";
 import { McHistoryList } from "../McHistoryList";
-import HashModal from "../HashModal";
 import {
   RemoteStructureLoader,
   shortHashForUrl,
 } from "../RemoteStructureLoader";
 import { createHistoryStore } from "../../utils/history";
 import { fromStructureShare } from "../../utils/structureShare";
-import { DefaultTerms } from "./DefaultTerms";
 import "./index.css";
 
 const cx = (...classes) => classes.filter(Boolean).join(" ");
@@ -52,8 +50,6 @@ export function McStructureUpload({
   title = "Drop your crystal structure here",
   accept = ".cif,.xyz,.vasp,.poscar,.xsf,.in,.pwi",
   hint = "CIF, XYZ, POSCAR, XSF and Quantum ESPRESSO files",
-  terms = <DefaultTerms />,
-  termsTitle = "Terms of service",
   shareStore,
   className,
   classes = {},
@@ -234,17 +230,6 @@ export function McStructureUpload({
         title={title}
         hint={hint}
       />
-
-      {terms && (
-        <>
-          <p className={cx("mc-structure-upload__agree", classes.agree)}>
-            By continuing you agree to our <a href="#terms">{termsTitle}</a>
-          </p>
-          <HashModal hash="terms" title={termsTitle}>
-            {terms}
-          </HashModal>
-        </>
-      )}
 
       {busy && (
         <p className={cx("mc-structure-upload__status", classes.status)}>
