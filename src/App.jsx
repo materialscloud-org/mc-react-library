@@ -90,6 +90,9 @@ function App() {
       <span>DoiBadge</span>
       <div>
         <DoiBadge doi_id="ab-cd" />
+        <DoiBadge doi_id="2017.0008/v1" label="Data DOI" />
+        <DoiBadge doi="10.1016/j.commatsci.2016.10.015" label="Paper DOI" />
+        <DoiBadge doi="10.48550/arXiv.1602.06402" label="ArXiv" color="#fcd5b3" />
       </div>
 
       <DoiBadge
