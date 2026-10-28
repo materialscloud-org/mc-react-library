@@ -25,6 +25,13 @@ const CopyIcon = () => (
   </svg>
 );
 
+const CheckIcon = () => (
+  <svg viewBox="0 0 16 16" width="1em" height="1em" fill="none" stroke="currentColor"
+    strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M3 8.5 6.5 12 13 4.5" />
+  </svg>
+);
+
 async function copyToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
@@ -38,8 +45,9 @@ async function copyToClipboard(text) {
  * McShareButton
  *
  * Share button backed by the Materials Cloud kv-store. On click it uploads
- * `toDocument(data)`, puts the `?<id>` link in the address bar, copies it
- * and shows it with a Copy button. Renders nothing without `data`.
+ * `toDocument(data)`, puts the `?<id>` link in the address bar and copies
+ * it. The link then appears to the left of the button, in the same row, so
+ * nothing below moves. Renders nothing without `data`.
  *
  *   <McShareButton
  *     data={loaded}                    // { structure, fileName }
@@ -51,17 +59,14 @@ async function copyToClipboard(text) {
  * Data that already has a `shareId` (it was opened from a link) is shared
  * by that link instead of being uploaded again. A new `data` resets it.
  *
- * By default the button sits right-aligned, with the error or the link box
- * below it. To lay it out yourself (e.g. next to other buttons), pass a
- * function as children; `error` and `result` are null until there is one:
+ * By default the row is right-aligned. To lay it out yourself (e.g. next to
+ * other buttons), pass a function as children; `error` and `result` are
+ * null until there is one, and `button` turns into a Copy button once the
+ * link exists:
  *
  *   <McShareButton data={data}>
  *     {({ button, error, result }) => (
- *       <>
- *         <div className="my-row">{button}<DownloadButton /></div>
- *         {error}
- *         {result}
- *       </>
+ *       <div className="my-row">{error}{result}{button}<DownloadButton /></div>
  *     )}
  *   </McShareButton>
  */
@@ -84,6 +89,10 @@ export function McShareButton({
 
   if (!data) return null;
 
+  const note = `Anyone with this link can view the data. It is stored on ${
+    new URL(kvUrl || KV_STORE_URL).host
+  } and expires after 30 days.`;
+
   const handleShare = async () => {
     const set = (next) => setState({ ...next, data });
     set({ status: "uploading" });
@@ -101,51 +110,47 @@ export function McShareButton({
   const copyAgain = async () =>
     setState({ ...state, data, copied: await copyToClipboard(state.link) });
 
-  const button = (
-    <button
-      type="button"
-      onClick={handleShare}
-      disabled={state.status === "uploading"}
-      className={cx("mc-share__button", classes.button)}
-    >
-      <ShareIcon />
-      {state.status === "uploading" ? busyLabel : label}
-    </button>
-  );
+  const button =
+    state.status === "done" ? (
+      <button
+        type="button"
+        onClick={copyAgain}
+        title={note}
+        className={cx("mc-share__button", classes.button)}
+      >
+        {state.copied ? <CheckIcon /> : <CopyIcon />}
+        {state.copied ? "Copied" : "Copy link"}
+      </button>
+    ) : (
+      <button
+        type="button"
+        onClick={handleShare}
+        disabled={state.status === "uploading"}
+        title={note}
+        className={cx("mc-share__button", classes.button)}
+      >
+        <ShareIcon />
+        {state.status === "uploading" ? busyLabel : label}
+      </button>
+    );
 
   const error =
     state.status === "error" ? (
-      <p className={cx("mc-share__error", classes.error)}>
+      <span role="alert" className={cx("mc-share__error", classes.error)}>
         Sharing failed: {state.message}
-      </p>
+      </span>
     ) : null;
 
   const result =
     state.status === "done" ? (
-      <div className={cx("mc-share__result", classes.result)}>
-        <div className="mc-share__row">
-          <input
-            readOnly
-            value={state.link}
-            onFocus={(e) => e.target.select()}
-            aria-label="Share link"
-            className="mc-share__input"
-          />
-          <button
-            type="button"
-            onClick={copyAgain}
-            className={cx("mc-share__button", classes.button)}
-          >
-            <CopyIcon />
-            Copy
-          </button>
-        </div>
-        <p className="mc-share__note">
-          {state.copied && "Link copied to clipboard. "}
-          Anyone with this link can view the data. It is stored on{" "}
-          {new URL(kvUrl || KV_STORE_URL).host} and expires after 30 days.
-        </p>
-      </div>
+      <input
+        readOnly
+        value={state.link}
+        onFocus={(e) => e.target.select()}
+        aria-label="Share link"
+        title={note}
+        className={cx("mc-share__input", classes.result)}
+      />
     ) : null;
 
   if (typeof children === "function") {
@@ -154,9 +159,9 @@ export function McShareButton({
 
   return (
     <div className={cx("mc-share", className, classes.root)} {...rest}>
-      <div className="mc-share__actions">{button}</div>
       {error}
       {result}
+      {button}
     </div>
   );
 }

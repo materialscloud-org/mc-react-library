@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import { McShareButton, McStructureUpload } from "../lib/main.js";
+import { McAppHeader, McShareButton, McStructureUpload } from "../lib/main.js";
 
 beforeEach(() => {
   globalThis.window = {
@@ -20,7 +20,7 @@ describe("McShareButton", () => {
   it("renders the button", () => {
     const html = renderToStaticMarkup(<McShareButton data={{ structure: {}, fileName: "x.cif" }} />);
     expect(html).toContain("Share</button>");
-    expect(html).toContain('class="mc-share__actions"');
+    expect(html).toContain('class="mc-share"');
   });
 
   it("lets children lay out the pieces", () => {
@@ -59,5 +59,29 @@ describe("McStructureUpload", () => {
   it("has no examples section without examples", () => {
     const html = renderToStaticMarkup(<McStructureUpload />);
     expect(html).not.toContain("<select");
+  });
+});
+
+describe("McAppHeader", () => {
+  it("renders the title, logo and DOIs", () => {
+    const html = renderToStaticMarkup(
+      <McAppHeader
+        title="My app"
+        logo="/logo.png"
+        dois={["10.1/abc", { doi: "10.2/def", label: "Paper", color: "#a2e5b7" }]}
+      />,
+    );
+    expect(html).toContain("<h1");
+    expect(html).toContain("My app</h1>");
+    expect(html).toContain('src="/logo.png"');
+    expect(html).toContain('href="https://doi.org/10.1/abc"');
+    expect(html).toContain(">Paper</span>");
+    expect(html).toContain("background-color:#a2e5b7");
+  });
+
+  it("leaves out the logo and DOIs when not given", () => {
+    const html = renderToStaticMarkup(<McAppHeader title="My app" />);
+    expect(html).not.toContain("<img");
+    expect(html).not.toContain("mc-app-header__dois");
   });
 });

@@ -1,0 +1,54 @@
+/* Layout of the ACWF verification app's header. */
+.mc-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #999;
+}
+
+.mc-app-header__text {
+  min-width: 0;
+  padding: 4px 0;
+  text-align: left;
+}
+
+.mc-app-header__title {
+  margin: 0;
+  color: inherit;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.mc-app-header__dois {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.375rem 0 0.5rem 4px;
+}
+
+/* DoiBadge's own size is relative; pin it so it matches whatever page it
+   is on. */
+.mc-app-header__dois > * {
+  font-size: 12px;
+}
+
+.mc-app-header__logo {
+  flex: none;
+  height: 70px;
+  width: auto;
+  padding: 4px;
+}
+
+@media (max-width: 480px) {
+  .mc-app-header__title {
+    font-size: 18px;
+  }
+
+  .mc-app-header__logo {
+    height: 48px;
+  }
+}

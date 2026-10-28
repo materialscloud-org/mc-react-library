@@ -22,6 +22,7 @@ import {
   HashModal,
   McStructureUpload,
   McShareButton,
+  McAppHeader,
   toStructureShare,
 } from "../lib/main.js";
 
@@ -75,6 +76,16 @@ function App() {
       <span>TestButton</span>
       <div>
         <TestButton />
+      </div>
+      <span>McAppHeader</span>
+      <div>
+        <McAppHeader
+          title="SeeK-path: the k-path finder and visualizer"
+          dois={[
+            "10.1016/j.commatsci.2016.10.015",
+            { doi: "10.24435/materialscloud:2017.0008/v1", label: "Archive" },
+          ]}
+        />
       </div>
       <span>DoiBadge</span>
       <div>
