@@ -38,8 +38,8 @@ const baseName = (url) => url.split(/[?#]/)[0].split("/").pop();
  *
  * Examples are `{ label, url, fileName?, family? }`; `fileName` defaults to
  * the URL's last segment, and examples with a `family` are grouped. A loaded
- * example joins the history once, under its `fileName`, unless
- * `rememberExamples` is false.
+ * example joins the history once, named by its `label` (and loaded again
+ * under its `fileName`), unless `rememberExamples` is false.
  */
 export function McStructureUpload({
   onStructureParsed,
@@ -81,14 +81,21 @@ export function McStructureUpload({
   });
 
   // Links (?fromURL=, ?<id>) and examples are remembered once, under their
-  // file name.
-  const addToHistory = ({ fileName, format, structure }, { unique = false } = {}) => {
+  // name: an example's label, else the file name.
+  const addToHistory = (
+    { fileName, format, structure },
+    { unique = false, name: historyName } = {},
+  ) => {
     if (!historyStore) return;
-    if (unique && historyStore.load().some((e) => e.fileName === fileName)) return;
+    const name = historyName ?? fileName;
+    if (unique && historyStore.load().some((e) => (e.name ?? e.fileName) === name)) {
+      return;
+    }
     setHistory(
       historyStore.add({
         id: crypto.randomUUID(),
         fileName,
+        ...(historyName && { name: historyName }),
         format,
         date: new Date().toISOString(),
         structure: toJSON(structure),
@@ -97,7 +104,10 @@ export function McStructureUpload({
   };
 
   // Validate and hand over a structure. Returns false if it was rejected.
-  const handOver = (parsed, { remember = true, fromLink = false, unique = fromLink } = {}) => {
+  const handOver = (
+    parsed,
+    { remember = true, fromLink = false, unique = fromLink, name } = {},
+  ) => {
     setError(null);
     try {
       validate?.(parsed.structure);
@@ -108,7 +118,7 @@ export function McStructureUpload({
     // A structure that did not come from a link makes the old link stale.
     if (!fromLink) syncAddressBar(null);
     onStructureParsed?.(parsed);
-    if (remember) addToHistory(parsed, { unique });
+    if (remember) addToHistory(parsed, { unique, name });
     return true;
   };
 
@@ -200,7 +210,7 @@ export function McStructureUpload({
       });
       handOver(
         { format, structure, fileName },
-        { remember: rememberExamples, unique: true },
+        { remember: rememberExamples, unique: true, name: example.label },
       );
     } catch (err) {
       setError(err?.message ?? String(err));

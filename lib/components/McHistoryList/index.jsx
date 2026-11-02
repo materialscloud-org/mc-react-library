@@ -16,7 +16,9 @@ function formatDate(value) {
  * pair it with `createHistoryStore` from `mc-react-library` for a
  * localStorage-backed store with the same shape:
  *
- *   { id, fileName, date, format? }
+ *   { id, fileName, name?, date, format? }
+ *
+ * shown under `name` if set (e.g. an example's), else `fileName`.
  *
  * Renders nothing when `entries` is empty.
  */
@@ -58,7 +60,7 @@ export function McHistoryList({
           >
             <div className={cx("mc-history__details", classes.details)}>
               <p className={cx("mc-history__name", classes.fileName)}>
-                {entry.fileName}
+                {entry.name ?? entry.fileName}
               </p>
               {entry.date && (
                 <p className={cx("mc-history__date", classes.date)}>
@@ -87,7 +89,7 @@ export function McHistoryList({
               <button
                 type="button"
                 onClick={() => onDelete(entry.id)}
-                aria-label={`${deleteLabel} ${entry.fileName}`}
+                aria-label={`${deleteLabel} ${entry.name ?? entry.fileName}`}
                 className={cx("mc-history__delete", classes.deleteButton)}
               >
                 {deleteLabel}
