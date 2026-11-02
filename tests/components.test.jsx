@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import { DoiBadge, McAppHeader, McShareButton, McStructureUpload } from "../lib/main.js";
+import { DoiBadge, McAppHeader, McResults, McShareButton, McStructureUpload } from "../lib/main.js";
 
 beforeEach(() => {
   globalThis.window = {
@@ -102,5 +102,21 @@ describe("DoiBadge", () => {
     expect(renderToStaticMarkup(<DoiBadge doi_id="2017.0008/v1" />)).toContain(
       'href="https://doi.org/10.24435/materialscloud:2017.0008/v1"',
     );
+  });
+});
+
+describe("McResults", () => {
+  it("renders the results", () => {
+    const html = renderToStaticMarkup(<McResults resultKey={1}><p>result</p></McResults>);
+    expect(html).toContain("<p>result</p>");
+    expect(html).toContain('aria-busy="false"');
+    expect(html).toContain("opacity:1");
+  });
+
+  it("dims them while busy", () => {
+    const html = renderToStaticMarkup(<McResults busy><p>old result</p></McResults>);
+    expect(html).toContain('aria-busy="true"');
+    expect(html).toContain("opacity:0.5");
+    expect(html).toContain("pointer-events:none");
   });
 });
