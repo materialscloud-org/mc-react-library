@@ -16,9 +16,10 @@ function formatDate(value) {
  * pair it with `createHistoryStore` from `mc-react-library` for a
  * localStorage-backed store with the same shape:
  *
- *   { id, fileName, name?, date, format? }
+ *   { id, fileName, name?, date, format?, example? }
  *
- * shown under `name` if set (e.g. an example's), else `fileName`.
+ * shown under `name` if set (e.g. an example's), else `fileName`, with an
+ * "Example" badge in place of the format for examples.
  *
  * Renders nothing when `entries` is empty.
  */
@@ -69,10 +70,21 @@ export function McHistoryList({
               )}
             </div>
 
-            {entry.format && (
-              <span className={cx("mc-history__format", classes.format)}>
-                {String(entry.format).toUpperCase()}
+            {entry.example ? (
+              <span
+                className={cx(
+                  "mc-history__format mc-history__format--example",
+                  classes.format,
+                )}
+              >
+                EXAMPLE
               </span>
+            ) : (
+              entry.format && (
+                <span className={cx("mc-history__format", classes.format)}>
+                  {String(entry.format).toUpperCase()}
+                </span>
+              )
             )}
 
             {onLoad && (

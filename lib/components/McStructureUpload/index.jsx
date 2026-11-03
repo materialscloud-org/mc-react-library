@@ -36,10 +36,11 @@ const baseName = (url) => url.split(/[?#]/)[0].split("/").pop();
  * is shown to the user. `shareId` is only set for structures opened from a
  * share link; pass it on to McShareButton.
  *
- * Examples are `{ label, url, fileName?, family? }`; `fileName` defaults to
- * the URL's last segment, and examples with a `family` are grouped. A loaded
- * example joins the history once, named by its `label` (and loaded again
- * under its `fileName`), unless `rememberExamples` is false.
+ * Examples are `{ label, url, fileName?, historyName?, family? }`; `fileName`
+ * defaults to the URL's last segment, and examples with a `family` are
+ * grouped. A loaded example joins the history once, named by its
+ * `historyName` or else its `label` (and loaded again under its `fileName`),
+ * marked as an example, unless `rememberExamples` is false.
  */
 export function McStructureUpload({
   onStructureParsed,
@@ -84,7 +85,7 @@ export function McStructureUpload({
   // name: an example's label, else the file name.
   const addToHistory = (
     { fileName, format, structure },
-    { unique = false, name: historyName } = {},
+    { unique = false, name: historyName, example = false } = {},
   ) => {
     if (!historyStore) return;
     const name = historyName ?? fileName;
@@ -96,6 +97,7 @@ export function McStructureUpload({
         id: crypto.randomUUID(),
         fileName,
         ...(historyName && { name: historyName }),
+        ...(example && { example: true }),
         format,
         date: new Date().toISOString(),
         structure: toJSON(structure),
@@ -106,7 +108,7 @@ export function McStructureUpload({
   // Validate and hand over a structure. Returns false if it was rejected.
   const handOver = (
     parsed,
-    { remember = true, fromLink = false, unique = fromLink, name } = {},
+    { remember = true, fromLink = false, unique = fromLink, name, example } = {},
   ) => {
     setError(null);
     try {
@@ -118,7 +120,7 @@ export function McStructureUpload({
     // A structure that did not come from a link makes the old link stale.
     if (!fromLink) syncAddressBar(null);
     onStructureParsed?.(parsed);
-    if (remember) addToHistory(parsed, { unique, name });
+    if (remember) addToHistory(parsed, { unique, name, example });
     return true;
   };
 
@@ -210,7 +212,12 @@ export function McStructureUpload({
       });
       handOver(
         { format, structure, fileName },
-        { remember: rememberExamples, unique: true, name: example.label },
+        {
+          remember: rememberExamples,
+          unique: true,
+          name: example.historyName ?? example.label,
+          example: true,
+        },
       );
     } catch (err) {
       setError(err?.message ?? String(err));
