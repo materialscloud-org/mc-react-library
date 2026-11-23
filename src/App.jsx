@@ -13,6 +13,8 @@ import {
   formatSpaceGroupSymbol,
   getSymmetryInfo,
   ToggleSwitch,
+  RangeSlider,
+  DualRangeSlider,
   McCopyAccordion,
   McCopyExtraAccordion,
   McInfoAccordion,
@@ -232,6 +234,8 @@ function App() {
       <div style={{ marginTop: "8px" }}>
         <ToggleSwitch />
       </div>
+      <span>RangeSlider / DualRangeSlider</span>
+      <SliderDemo />
       <span>HashModal (hash-driven)</span>
       <div>
         <a href="#demo-modal">Open demo modal</a>
@@ -299,3 +303,14 @@ function App() {
 }
 
 export default App;
+
+function SliderDemo() {
+  const [value, setValue] = useState(4);
+  const [range, setRange] = useState([2, 8]);
+  return (
+    <div style={{ marginTop: "8px", display: "grid", gap: "8px", maxWidth: "32rem" }}>
+      <RangeSlider label="Value" value={value} min={0} max={10} step={0.5} onChange={setValue} />
+      <DualRangeSlider label="Range" value={range} min={0} max={10} step={0.1} onChange={setRange} />
+    </div>
+  );
+}

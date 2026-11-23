@@ -1,0 +1,140 @@
+/* The Materials Cloud sliders: native <input type="range"> (keyboard and
+   screen readers keep working), a thin track filled in the accent colour, round
+   thumbs. Override the colours with --mc-slider-color / --mc-slider-track. */
+.root {
+  --mc-slider-color: #337ab7;
+  --mc-slider-track: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 0.875rem;
+}
+
+.value {
+  width: 3rem;
+  text-align: right;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  color: #475569;
+}
+
+.number {
+  width: 4rem;
+  flex-shrink: 0;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* the single slider: the input is the track */
+.input {
+  width: 16rem;
+  max-width: 100%;
+  min-width: 0;
+  height: 6px;
+  margin: 0;
+  border-radius: 9999px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+/* the dual slider: two transparent inputs over one track; only the thumbs take the pointer */
+.track {
+  position: relative;
+  height: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 6px;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+}
+
+.dualInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.input:focus-visible {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(51 122 183 / 0.4);
+}
+
+.input::-webkit-slider-thumb,
+.dualInput::-webkit-slider-thumb {
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--mc-slider-color);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1), 0 1px 2px rgb(0 0 0 / 0.1);
+  transition: transform 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::-moz-range-thumb,
+.dualInput::-moz-range-thumb {
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 2px solid var(--mc-slider-color);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1), 0 1px 2px rgb(0 0 0 / 0.1);
+  transition: transform 0.15s;
+}
+
+.input::-webkit-slider-thumb:hover,
+.dualInput::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.input::-moz-range-thumb:hover,
+.dualInput::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+.dualInput:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgb(51 122 183 / 0.4);
+}
+
+.dualInput:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgb(51 122 183 / 0.4);
+}
+
+.input::-moz-range-track,
+.dualInput::-moz-range-track {
+  background: transparent;
+}
+
+.above {
+  z-index: 2;
+}
+
+.below {
+  z-index: 1;
+}
