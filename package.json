@@ -1,6 +1,6 @@
 {
   "name": "mc-react-library",
-  "version": "0.7.14",
+  "version": "0.7.15",
   "type": "module",
   "module": "dist/main.js",
   "files": [
