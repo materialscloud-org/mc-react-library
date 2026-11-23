@@ -15,6 +15,8 @@ import {
   ToggleSwitch,
   RangeSlider,
   DualRangeSlider,
+  PropertyTable,
+  McInfoAccordions,
   McCopyAccordion,
   McCopyExtraAccordion,
   McInfoAccordion,
@@ -94,7 +96,11 @@ function App() {
         <DoiBadge doi_id="ab-cd" />
         <DoiBadge doi_id="2017.0008/v1" label="Data DOI" />
         <DoiBadge doi="10.1016/j.commatsci.2016.10.015" label="Paper DOI" />
-        <DoiBadge doi="10.48550/arXiv.1602.06402" label="ArXiv" color="#fcd5b3" />
+        <DoiBadge
+          doi="10.48550/arXiv.1602.06402"
+          label="ArXiv"
+          color="#fcd5b3"
+        />
       </div>
 
       <DoiBadge
@@ -185,9 +191,7 @@ function App() {
           title="Demo history"
           entries={demoHistoryEntries}
           onLoad={(entry) => setDemoFile(entry.fileName)}
-          onDelete={(id) =>
-            setDemoHistoryEntries(demoHistory.remove(id))
-          }
+          onDelete={(id) => setDemoHistoryEntries(demoHistory.remove(id))}
           onClear={() => setDemoHistoryEntries(demoHistory.clear())}
         />
       </div>
@@ -233,6 +237,31 @@ function App() {
       <span>ToggleSwitch</span>
       <div style={{ marginTop: "8px" }}>
         <ToggleSwitch />
+      </div>
+      <span>McInfoAccordions (one open at a time; single=&#123;false&#125; for independent)</span>
+      <div style={{ marginTop: "8px", maxWidth: "40rem" }}>
+        <McInfoAccordions
+          defaultOpen={["About"]}
+          items={[
+            { title: "About", content: <p>What the app shows.</p> },
+            { title: "How to cite", content: <p>The paper and the data DOI.</p> },
+            { title: "Acknowledgements", content: <p>Funding.</p> },
+          ]}
+        />
+      </div>
+      <span>PropertyTable</span>
+      <div style={{ marginTop: "8px", maxWidth: "32rem" }}>
+        <PropertyTable
+          maxHeight={160}
+          properties={{
+            "density [kg/m^3]": 260.21323,
+            bond_type: "amide",
+            dimensions: 2,
+            "surface area [m^2/g]": 7713.44,
+            "chemical formula": "C360H216N144O72",
+            net: "hcb",
+          }}
+        />
       </div>
       <span>RangeSlider / DualRangeSlider</span>
       <SliderDemo />
@@ -308,9 +337,30 @@ function SliderDemo() {
   const [value, setValue] = useState(4);
   const [range, setRange] = useState([2, 8]);
   return (
-    <div style={{ marginTop: "8px", display: "grid", gap: "8px", maxWidth: "32rem" }}>
-      <RangeSlider label="Value" value={value} min={0} max={10} step={0.5} onChange={setValue} />
-      <DualRangeSlider label="Range" value={range} min={0} max={10} step={0.1} onChange={setRange} />
+    <div
+      style={{
+        marginTop: "8px",
+        display: "grid",
+        gap: "8px",
+        maxWidth: "32rem",
+      }}
+    >
+      <RangeSlider
+        label="Value"
+        value={value}
+        min={0}
+        max={10}
+        step={0.5}
+        onChange={setValue}
+      />
+      <DualRangeSlider
+        label="Range"
+        value={range}
+        min={0}
+        max={10}
+        step={0.1}
+        onChange={setRange}
+      />
     </div>
   );
 }
