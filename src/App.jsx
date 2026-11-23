@@ -1,6 +1,7 @@
 import "./App.css";
 
 import { useState } from "react";
+import { fromJSON, toCIF, toPOSCAR, toXSF, toXYZ } from "matsci-parse";
 
 import {
   TestButton,
@@ -8,6 +9,7 @@ import {
   HelpButton,
   McloudSpinner,
   StructDownloadButton,
+  DownloadDropdown,
   ExploreButton,
   formatChemicalFormula,
   formatSpaceGroupSymbol,
@@ -289,11 +291,28 @@ function App() {
       <div style={{ width: "80px", padding: "10px" }}>
         <McloudSpinner />
       </div>
-      <span>StructDownloadButton</span>
+      <span>StructDownloadButton (to be deprecated: DownloadDropdown)</span>
       <div>
         <StructDownloadButton
           aiida_rest_url="https://aiida.materialscloud.org/mc3d/api/v4"
           uuid="1d546de0-fb37-4faa-bb25-b3d02773f5e6"
+        />
+      </div>
+      <span>DownloadDropdown</span>
+      <div>
+        <DownloadDropdown
+          download_formats={["cif", "xsf", "xyz"].map((format) => ({
+            label: format.toUpperCase(),
+            href: `https://aiida.materialscloud.org/mc3d/api/v4/nodes/1d546de0-fb37-4faa-bb25-b3d02773f5e6/download?download_format=${format}`,
+          }))}
+        />
+        <DownloadDropdown
+          download_formats={[
+            { label: "CIF", filename: "NaCl.cif", content: () => toCIF(DEMO_STRUCTURE) },
+            { label: "XYZ", filename: "NaCl.xyz", content: () => toXYZ(DEMO_STRUCTURE) },
+            { label: "XSF", filename: "NaCl.xsf", content: () => toXSF(DEMO_STRUCTURE) },
+            { label: "VASP", filename: "NaCl.vasp", content: () => toPOSCAR(DEMO_STRUCTURE) },
+          ]}
         />
       </div>
       <span>ExploreButton</span>
@@ -364,3 +383,12 @@ function SliderDemo() {
     </div>
   );
 }
+
+// a rock-salt cell, for DownloadDropdown's in-browser downloads (written by the demo with matsci-parse)
+const DEMO_STRUCTURE = fromJSON({
+  lattice: [0, 2.82, 2.82, 2.82, 0, 2.82, 2.82, 2.82, 0],
+  sites: [
+    { species: { symbol: "Na" }, frac: [0, 0, 0] },
+    { species: { symbol: "Cl" }, frac: [0.5, 0.5, 0.5] },
+  ],
+});

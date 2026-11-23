@@ -1,3 +1,4 @@
+// TODO: Deprecate in favour of DownloadDropdown
 import { useEffect, useRef, useState } from "react";
 import { DownloadIcon } from "../Icons";
 import "./index.css";
